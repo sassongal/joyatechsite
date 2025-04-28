@@ -1,0 +1,54 @@
+{
+    "name": "ContactMessage",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "שם הפונה"
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "אימייל"
+      },
+      "phone": {
+        "type": "string",
+        "description": "מספר טלפון"
+      },
+      "subject": {
+        "type": "string",
+        "description": "נושא ההודעה"
+      },
+      "message": {
+        "type": "string",
+        "description": "תוכן ההודעה"
+      },
+      "service_interest": {
+        "type": "string",
+        "description": "השירות המבוקש"
+      },
+      "language": {
+        "type": "string",
+        "enum": [
+          "he",
+          "en"
+        ],
+        "description": "שפת הפנייה"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "new",
+          "in_progress",
+          "done"
+        ],
+        "default": "new",
+        "description": "סטטוס הטיפול בפנייה"
+      }
+    },
+    "required": [
+      "name",
+      "email",
+      "message"
+    ]
+  }

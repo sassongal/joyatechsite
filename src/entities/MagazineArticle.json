@@ -1,0 +1,108 @@
+{
+    "name": "MagazineArticle",
+    "type": "object",
+    "properties": {
+      "title_he": {
+        "type": "string",
+        "description": "כותרת המאמר בעברית"
+      },
+      "title_en": {
+        "type": "string",
+        "description": "כותרת המאמר באנגלית"
+      },
+      "slug_he": {
+        "type": "string",
+        "description": "כתובת URL בעברית"
+      },
+      "slug_en": {
+        "type": "string",
+        "description": "כתובת URL באנגלית"
+      },
+      "content_he": {
+        "type": "string",
+        "description": "תוכן המאמר בעברית"
+      },
+      "content_en": {
+        "type": "string",
+        "description": "תוכן המאמר באנגלית"
+      },
+      "summary_he": {
+        "type": "string",
+        "description": "תקציר המאמר בעברית"
+      },
+      "summary_en": {
+        "type": "string",
+        "description": "תקציר המאמר באנגלית"
+      },
+      "meta_description_he": {
+        "type": "string",
+        "description": "תיאור מטא בעברית לSEO"
+      },
+      "meta_description_en": {
+        "type": "string",
+        "description": "תיאור מטא באנגלית לSEO"
+      },
+      "image_url": {
+        "type": "string",
+        "description": "תמונת המאמר"
+      },
+      "cover_image_url": {
+        "type": "string",
+        "description": "תמונת נושא גדולה למאמר"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "tech_trends",
+          "digital_marketing",
+          "ai_innovation",
+          "web_development",
+          "business_growth",
+          "cybersecurity"
+        ],
+        "description": "קטגוריית המאמר"
+      },
+      "featured": {
+        "type": "boolean",
+        "default": false,
+        "description": "האם המאמר מקודם/מומלץ"
+      },
+      "author": {
+        "type": "string",
+        "description": "שם הכותב"
+      },
+      "author_image": {
+        "type": "string",
+        "description": "תמונת הכותב"
+      },
+      "reading_time": {
+        "type": "number",
+        "description": "זמן קריאה משוער בדקות"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "תגיות מאמר"
+      },
+      "published": {
+        "type": "boolean",
+        "default": false,
+        "description": "האם המאמר פורסם"
+      },
+      "publish_date": {
+        "type": "string",
+        "format": "date",
+        "description": "תאריך פרסום"
+      }
+    },
+    "required": [
+      "title_he",
+      "title_en",
+      "content_he",
+      "content_en",
+      "category",
+      "author"
+    ]
+  }

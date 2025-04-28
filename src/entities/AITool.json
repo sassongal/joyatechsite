@@ -1,0 +1,56 @@
+{
+    "name": "AITool",
+    "type": "object",
+    "properties": {
+      "name_he": {
+        "type": "string",
+        "description": "שם הכלי בעברית"
+      },
+      "name_en": {
+        "type": "string",
+        "description": "שם הכלי באנגלית"
+      },
+      "description_he": {
+        "type": "string",
+        "description": "תיאור קצר בעברית"
+      },
+      "description_en": {
+        "type": "string",
+        "description": "תיאור קצר באנגלית"
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "design",
+          "content",
+          "automation",
+          "voice",
+          "video",
+          "data",
+          "image",
+          "coding"
+        ],
+        "description": "קטגוריית הכלי"
+      },
+      "url": {
+        "type": "string",
+        "description": "קישור לכלי"
+      },
+      "icon": {
+        "type": "string",
+        "description": "שם האייקון מספריית Lucide"
+      },
+      "order": {
+        "type": "number",
+        "description": "סדר הצגה"
+      }
+    },
+    "required": [
+      "name_he",
+      "name_en",
+      "description_he",
+      "description_en",
+      "category",
+      "url"
+    ]
+  }

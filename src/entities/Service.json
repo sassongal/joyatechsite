@@ -1,0 +1,78 @@
+{
+    "name": "Service",
+    "type": "object",
+    "properties": {
+      "title_he": {
+        "type": "string",
+        "description": "שם השירות בעברית"
+      },
+      "title_en": {
+        "type": "string",
+        "description": "שם השירות באנגלית"
+      },
+      "slug_he": {
+        "type": "string",
+        "description": "כתובת URL בעברית"
+      },
+      "slug_en": {
+        "type": "string",
+        "description": "כתובת URL באנגלית"
+      },
+      "summary_he": {
+        "type": "string",
+        "description": "תקציר השירות בעברית"
+      },
+      "summary_en": {
+        "type": "string",
+        "description": "תקציר השירות באנגלית"
+      },
+      "description_he": {
+        "type": "string",
+        "description": "תיאור מפורט של השירות בעברית"
+      },
+      "description_en": {
+        "type": "string",
+        "description": "תיאור מפורט של השירות באנגלית"
+      },
+      "meta_description_he": {
+        "type": "string",
+        "description": "תיאור מטא בעברית לSEO"
+      },
+      "meta_description_en": {
+        "type": "string",
+        "description": "תיאור מטא באנגלית לSEO"
+      },
+      "features_he": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "תכונות השירות בעברית"
+      },
+      "features_en": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "תכונות השירות באנגלית"
+      },
+      "icon": {
+        "type": "string",
+        "description": "אייקון השירות"
+      },
+      "image_url": {
+        "type": "string",
+        "description": "תמונת השירות"
+      },
+      "order": {
+        "type": "number",
+        "description": "סדר התצוגה"
+      }
+    },
+    "required": [
+      "title_he",
+      "title_en",
+      "description_he",
+      "description_en"
+    ]
+  }
