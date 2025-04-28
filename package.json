@@ -12,9 +12,11 @@
   "dependencies": {
     "@vitejs/plugin-react": "^4.4.1",
     "date-fns": "^3.6.0",
+    "lucide-react": "^0.503.0",
     "postcss-cli": "^11.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-markdown": "^9.0.1",
     "react-router-dom": "^6.22.3",
     "vite-tsconfig-paths": "^5.1.4"
