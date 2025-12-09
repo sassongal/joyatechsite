@@ -1,0 +1,82 @@
+.gooey-nav {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.gooey-nav-item {
+  position: relative;
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.gooey-nav-item:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.gooey-nav-item.active {
+  color: #fff;
+  background: #403D58;
+}
+
+.gooey-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: gooeyParticle 0.8s ease-out forwards;
+  z-index: 10;
+}
+
+.gooey-particle:nth-child(1) { background: #403D58; }
+.gooey-particle:nth-child(2) { background: #10b981; }
+.gooey-particle:nth-child(3) { background: #f59e0b; }
+.gooey-particle:nth-child(4) { background: #ef4444; }
+
+@keyframes gooeyParticle {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(var(--tx), var(--ty)) rotate(var(--r)) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) rotate(calc(var(--r) * 2)) scale(0.8);
+  }
+}
+
+/* SVG filter for gooey effect */
+.gooey-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: url('#gooey-filter');
+  z-index: -1;
+}
+
+/* Hidden SVG filter definition */
+.gooey-filter-svg {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* SVG filters are defined in the Layout component */

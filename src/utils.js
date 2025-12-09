@@ -17,8 +17,10 @@ export function createPageUrl(page) {
       return '/magazine';
     case 'MagazineArticle':
       return '/magazinearticle';
-    case 'AITools':
-      return '/aitools';
+    case 'Tools':
+      return '/tools';
+    case 'Courses':
+      return '/courses';
     default:
       return '/';
   }

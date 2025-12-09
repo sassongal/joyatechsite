@@ -47,9 +47,8 @@ export default function ContactForm({ language = 'he' }) {
       'other': rtl ? 'אחר' : 'Other'
     },
     directContact: rtl ? 'או צרו קשר ישירות' : 'Or Contact Us Directly',
-    email_contact: 'Gal@joya-tech.net',
-    phone_contact: '+972546468676',
-    phone_contact_display: '054-646-8676'
+    email_contact: 'info@joyatech.com',
+    phone_contact: '+972 50-123-4567'
   };
 
   const handleChange = (e) => {
@@ -143,7 +142,7 @@ export default function ContactForm({ language = 'he' }) {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border ${errors.name ? 'border-primary-300 bg-primary-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
+                        className={`w-full px-4 py-3 border ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
                       />
                       {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                     </div>
@@ -158,7 +157,7 @@ export default function ContactForm({ language = 'he' }) {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border ${errors.email ? 'border-primary-300 bg-primary-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
+                        className={`w-full px-4 py-3 border ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
                       />
                       {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                     </div>
@@ -204,7 +203,7 @@ export default function ContactForm({ language = 'he' }) {
                         value={formData.message}
                         onChange={handleChange}
                         rows="5"
-                        className={`w-full px-4 py-3 border ${errors.message ? 'border-primary-300 bg-primary-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
+                        className={`w-full px-4 py-3 border ${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
                       ></textarea>
                       {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                     </div>
@@ -257,7 +256,7 @@ export default function ContactForm({ language = 'he' }) {
                     <div>
                       <p className="text-sm text-neutral-200 mb-1">{translations.phone}</p>
                       <a href={`tel:${translations.phone_contact}`} className="text-lg font-medium hover:underline">
-                        {translations.phone_contact_display}
+                        {translations.phone_contact}
                       </a>
                     </div>
                   </div>

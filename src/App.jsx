@@ -1,31 +1,43 @@
 // src/App.jsx
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import About from './pages/About';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
-import Contact from './pages/Contact';
-import Magazine from './pages/Magazine';
-import MagazineArticle from './pages/MagazineArticle';
-import AITools from './pages/AITools';
 import Layout from './Layout';
+import ErrorBoundary from './components/ErrorBoundary';
+
+// Lazy load pages for better performance
+const Home = lazy(() => import('./pages/Home'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Magazine = lazy(() => import('./pages/Magazine'));
+const MagazineArticle = lazy(() => import('./pages/MagazineArticle'));
+const Tools = lazy(() => import('./pages/Tools'));
+const Courses = lazy(() => import('./pages/Courses'));
+
+// Loading component
+const LoadingSpinner = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+  </div>
+);
 
 export default function App() {
   return (
     <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blogpost" element={<BlogPost />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/magazine" element={<Magazine />} />
-        <Route path="/magazinearticle" element={<MagazineArticle />} />
-        <Route path="/aitools" element={<AITools />} />
-      </Routes>
+      <ErrorBoundary language="he">
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/magazine" element={<Magazine />} />
+            <Route path="/magazine/:id" element={<MagazineArticle />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/courses" element={<Courses />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </Layout>
   );
 }

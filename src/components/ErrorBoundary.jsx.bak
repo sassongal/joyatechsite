@@ -1,0 +1,91 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
+import { AlertTriangle, RefreshCw } from 'lucide-react';
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null, errorInfo: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    this.setState({
+      error: error,
+      errorInfo: errorInfo
+    });
+
+    // Log error to console for debugging
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
+
+  handleReset = () => {
+    this.setState({ hasError: false, error: null, errorInfo: null });
+  };
+
+  render() {
+    if (this.state.hasError) {
+      const rtl = this.props.language === 'he';
+
+      return (
+        <div className="min-h-screen bg-slate-900 flex items-center justify-center px-4">
+          <div className="max-w-md w-full">
+            <div className="glass-card rounded-2xl p-8 text-center border border-red-500/20">
+              <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <AlertTriangle className="w-8 h-8 text-red-400" />
+              </div>
+
+              <h1 className="text-2xl font-bold text-white mb-4">
+                {rtl ? 'שגיאה בטעינת העמוד' : 'Page Loading Error'}
+              </h1>
+
+              <p className="text-slate-300 mb-8 leading-relaxed">
+                {rtl
+                  ? 'אירעה שגיאה בלתי צפויה. אנא נסה לרענן את העמוד או חזור לדף הבית.'
+                  : 'An unexpected error occurred. Please try refreshing the page or return to the home page.'
+                }
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={this.handleReset}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-secondary-600 hover:bg-secondary-700 text-white rounded-lg font-medium transition-colors"
+                >
+                  <RefreshCw className="w-4 h-4" />
+                  {rtl ? 'נסה שוב' : 'Try Again'}
+                </button>
+
+                <Link
+                  to={createPageUrl('Home') + `?lang=${this.props.language}`}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors"
+                >
+                  {rtl ? 'חזור לדף הבית' : 'Go Home'}
+                </Link>
+              </div>
+
+              {process.env.NODE_ENV === 'development' && this.state.error && (
+                <details className="mt-8 text-left">
+                  <summary className="text-slate-400 cursor-pointer hover:text-slate-300">
+                    {rtl ? 'פרטי שגיאה (למפתחים)' : 'Error Details (Development)'}
+                  </summary>
+                  <pre className="mt-4 p-4 bg-slate-800 rounded-lg text-xs text-red-300 overflow-auto">
+                    {this.state.error.toString()}
+                    {this.state.errorInfo.componentStack}
+                  </pre>
+                </details>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;

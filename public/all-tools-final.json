@@ -1,0 +1,803 @@
+[
+  {
+    "id": "tool001",
+    "name_he": "ChatGPT",
+    "name_en": "ChatGPT",
+    "category": "content",
+    "url": "https://chat.openai.com",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "מודל שפה מתקדם של OpenAI ליצירת טקסט, כתיבה, תרגום, סיכומים ועוד. הכלי הכי פופולרי לעבודה עם AI",
+    "description_en": "Advanced language model by OpenAI for text generation, writing, translation, summaries and more. Most popular AI tool",
+    "pros_he": [
+      "ממשק ידידותי",
+      "תוצאות מעולות",
+      "API זמין",
+      "גרסה חינמית טובה"
+    ],
+    "cons_he": [
+      "גרסה חינמית מוגבלת",
+      "לפעמים נותן תשובות לא מדויקות",
+      "צריך להיות מחובר לאינטרנט"
+    ],
+    "use_cases_he": [
+      "כתיבת תוכן שיווקי",
+      "סיכום מסמכים",
+      "תרגום טקסטים",
+      "מענה על שאלות",
+      "כתיבת קוד"
+    ],
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
+  },
+  {
+    "id": "tool002",
+    "name_he": "Midjourney",
+    "name_en": "Midjourney",
+    "category": "design",
+    "url": "https://www.midjourney.com",
+    "pricing": "paid",
+    "rating": 5,
+    "description_he": "מחולל תמונות AI מתקדם שיוצר אמנות ברמה מקצועית. מוביל בתחום יצירת תמונות ואיורים",
+    "description_en": "Advanced AI image generator creating professional-level art. Leader in image and illustration creation",
+    "pros_he": [
+      "איכות תמונה מדהימה",
+      "סגנונות אמנותיים מגוונים",
+      "קהילת משתמשים פעילה",
+      "שיפורים קבועים"
+    ],
+    "cons_he": [
+      "אין גרסה חינמית",
+      "עובד דרך Discord",
+      "מחיר גבוה יחסית"
+    ],
+    "use_cases_he": [
+      "עיצוב גרפי מקצועי",
+      "אמנות דיגיטלית",
+      "אילוסטרציות לתוכן",
+      "קונספטים ויזואליים",
+      "תמונות מוצר"
+    ],
+    "logo": "https://styles.redditmedia.com/t5_2w8v2g/styles/communityIcon_0jk8bys28ta91.png"
+  },
+  {
+    "id": "tool003",
+    "name_he": "Canva",
+    "name_en": "Canva",
+    "category": "design",
+    "url": "https://www.canva.com",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "פלטפורמת עיצוב אינטואיטיבית עם כלי AI מובנים ליצירת עיצובים מקצועיים ללא ידע מוקדם",
+    "description_en": "Intuitive design platform with built-in AI tools for creating professional designs without prior knowledge",
+    "pros_he": [
+      "קל ללמידה",
+      "תבניות מעוצבות",
+      "כלי AI מובנים",
+      "גרסה חינמית מצוינת"
+    ],
+    "cons_he": [
+      "מוגבל בהתאמות מתקדמות",
+      "דורש אינטרנט",
+      "חלק מהתבניות פרימיום"
+    ],
+    "use_cases_he": [
+      "פוסטים לרשתות חברתיות",
+      "מצגות",
+      "לוגואים",
+      "פלאיירים",
+      "כרטיסי ביקור"
+    ],
+    "logo": "https://static.canva.com/web/images/12487a1e0770d29351bd4ce4f87ec8fe.svg"
+  },
+  {
+    "id": "tool004",
+    "name_he": "Grammarly",
+    "name_en": "Grammarly",
+    "category": "content",
+    "url": "https://www.grammarly.com",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "כלי בדיקת דקדוק וסגנון מתקדם באנגלית עם המלצות AI לשיפור כתיבה",
+    "description_en": "Advanced grammar and style checker in English with AI recommendations for writing improvement",
+    "pros_he": [
+      "תיקון בזמן אמת",
+      "שילוב בכל מקום",
+      "הצעות סגנון",
+      "זיהוי טון"
+    ],
+    "cons_he": [
+      "רק אנגלית",
+      "גרסה חינמית מוגבלת",
+      "לפעמים מציע תיקונים מיותרים"
+    ],
+    "use_cases_he": [
+      "כתיבת מיילים מקצועיים",
+      "בלוגים",
+      "מאמרים",
+      "מסמכים עסקיים"
+    ],
+    "logo": "https://static.grammarly.com/assets/files/efe57d016d9efff36da7884c193b646b/grammarly_logo.svg"
+  },
+  {
+    "id": "tool005",
+    "name_he": "Copy.ai",
+    "name_en": "Copy.ai",
+    "category": "content",
+    "url": "https://www.copy.ai",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "כלי לכתיבת תוכן שיווקי באמצעות AI - מפוסטים ברשתות חברתיות ועד עמודי נחיתה",
+    "description_en": "AI-powered marketing copywriting tool - from social media posts to landing pages",
+    "pros_he": [
+      "תבניות מוכנות",
+      "תוצאות מהירות",
+      "כתיבה במספר שפות",
+      "ממשק פשוט"
+    ],
+    "cons_he": [
+      "לפעמים גנרי",
+      "דורש עריכה",
+      "מוגבל בגרסה חינמית"
+    ],
+    "use_cases_he": [
+      "כתיבת פוסטים",
+      "תיאורי מוצר",
+      "כותרות",
+      "סלוגנים"
+    ],
+    "logo": "https://www.copy.ai/favicon.svg"
+  },
+  {
+    "id": "tool006",
+    "name_he": "Jasper AI",
+    "name_en": "Jasper AI",
+    "category": "content",
+    "url": "https://www.jasper.ai",
+    "pricing": "paid",
+    "rating": 4.5,
+    "description_he": "פלטפורמת כתיבת תוכן מקצועית מונעת AI לשיווק, בלוגים ותוכן ארוך",
+    "description_en": "Professional AI-powered content writing platform for marketing, blogs and long-form content",
+    "pros_he": [
+      "איכות כתיבה גבוהה",
+      "מגוון תבניות",
+      "שילוב עם Surfer SEO",
+      "תמיכה רב-לשונית"
+    ],
+    "cons_he": [
+      "יקר",
+      "אין גרסה חינמית",
+      "דורש למידה"
+    ],
+    "use_cases_he": [
+      "בלוגים ארוכים",
+      "תוכן SEO",
+      "מסעות פרסום",
+      "מיילים שיווקיים"
+    ],
+    "logo": "https://www.jasper.ai/favicon.svg"
+  },
+  {
+    "id": "tool007",
+    "name_he": "Notion AI",
+    "name_en": "Notion AI",
+    "category": "productivity",
+    "url": "https://www.notion.so/product/ai",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "AI מובנה בתוך Notion לכתיבה, סיכום, תרגום ואוטומציה של משימות",
+    "description_en": "Built-in AI in Notion for writing, summarizing, translating and task automation",
+    "pros_he": [
+      "משולב ב-Notion",
+      "פשוט לשימוש",
+      "סיכום מסמכים",
+      "תבניות חכמות"
+    ],
+    "cons_he": [
+      "דורש חשבון Notion",
+      "תשלום נוסף",
+      "מוגבל בפעולות"
+    ],
+    "use_cases_he": [
+      "ניהול פרויקטים",
+      "סיכום פגישות",
+      "תכנון עבודה",
+      "בסיסי מידע"
+    ],
+    "logo": "https://www.notion.so/images/logo-ios.png"
+  },
+  {
+    "id": "tool008",
+    "name_he": "DALL-E 3",
+    "name_en": "DALL-E 3",
+    "category": "design",
+    "url": "https://openai.com/dall-e-3",
+    "pricing": "paid",
+    "rating": 5,
+    "description_he": "מחולל תמונות AI של OpenAI המשולב ב-ChatGPT Plus, מוביל בהבנת טקסט",
+    "description_en": "OpenAI's AI image generator integrated in ChatGPT Plus, leader in text understanding",
+    "pros_he": [
+      "הבנת פרומפט מצוינת",
+      "משולב ב-ChatGPT",
+      "טקסט בתמונות",
+      "איכות גבוהה"
+    ],
+    "cons_he": [
+      "דורש ChatGPT Plus",
+      "מוגבל בכמות",
+      "לא תמיד ריאליסטי"
+    ],
+    "use_cases_he": [
+      "אילוסטרציות",
+      "תמונות בלוג",
+      "קריאייטיב שיווקי",
+      "מוקאפים"
+    ],
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
+  },
+  {
+    "id": "tool009",
+    "name_he": "Claude",
+    "name_en": "Claude",
+    "category": "content",
+    "url": "https://claude.ai",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "מודל שפה מתקדם של Anthropic המצטיין בהבנת הקשר ותשובות מדויקות",
+    "description_en": "Advanced language model by Anthropic excelling in context understanding and accurate responses",
+    "pros_he": [
+      "תשובות מדויקות",
+      "הקשר ארוך",
+      "בטיחות גבוהה",
+      "ממשק נקי"
+    ],
+    "cons_he": [
+      "זמינות מוגבלת",
+      "פחות פופולרי",
+      "לפעמים מדי זהיר"
+    ],
+    "use_cases_he": [
+      "ניתוח מסמכים",
+      "כתיבת תוכן מקצועי",
+      "מחקר",
+      "סיכומים"
+    ],
+    "logo": "https://claude.ai/images/claude_app_icon.png"
+  },
+  {
+    "id": "tool010",
+    "name_he": "Runway ML",
+    "name_en": "Runway ML",
+    "category": "video",
+    "url": "https://runwayml.com",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "פלטפורמת עריכת וידאו מונעת AI - מהסרת רקעים ועד יצירת וידאו מטקסט",
+    "description_en": "AI-powered video editing platform - from background removal to text-to-video creation",
+    "pros_he": [
+      "כלים מתקדמים",
+      "עריכה קלה",
+      "Gen-2 מדהים",
+      "אפקטים מיוחדים"
+    ],
+    "cons_he": [
+      "יקר למשתמש רגיל",
+      "דורש למידה",
+      "מוגבל בגרסה חינמית"
+    ],
+    "use_cases_he": [
+      "עריכת וידאו",
+      "אפקטים ויזואליים",
+      "יצירת סרטונים",
+      "אנימציות"
+    ],
+    "logo": "https://runwayml.com/favicon.svg"
+  },
+  {
+    "id": "tool011",
+    "name_he": "Synthesia",
+    "name_en": "Synthesia",
+    "category": "video",
+    "url": "https://www.synthesia.io",
+    "pricing": "paid",
+    "rating": 4,
+    "description_he": "יצירת סרטוני דמויות AI מדוברות מטקסט בלבד - ללא צילום או עריכה",
+    "description_en": "Create AI avatar videos from text only - no filming or editing required",
+    "pros_he": [
+      "קל לייצר סרטונים",
+      "דמויות מגוונות",
+      "רב-לשוני",
+      "חיסכון בזמן"
+    ],
+    "cons_he": [
+      "יקר מאוד",
+      "נראה מלאכותי",
+      "מוגבל בהתאמות"
+    ],
+    "use_cases_he": [
+      "הדרכות",
+      "מצגות",
+      "שיווק",
+      "הסברים"
+    ],
+    "logo": "https://www.synthesia.io/favicon.svg"
+  },
+  {
+    "id": "tool012",
+    "name_he": "ElevenLabs",
+    "name_en": "ElevenLabs",
+    "category": "voice",
+    "url": "https://elevenlabs.io",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "מחולל קול AI המציאותי בעולם - שיבוט קול ויצירת דיבור מטקסט",
+    "description_en": "Most realistic AI voice generator in the world - voice cloning and text-to-speech",
+    "pros_he": [
+      "איכות קול מדהימה",
+      "שיבוט קול",
+      "רב-לשוני",
+      "ממשק פשוט"
+    ],
+    "cons_he": [
+      "מוגבל בגרסה חינמית",
+      "יקר לשימוש מסיבי",
+      "דורש זהירות אתית"
+    ],
+    "use_cases_he": [
+      "נרציה לסרטונים",
+      "ספרי אודיו",
+      "הודעות קוליות",
+      "דובבים"
+    ],
+    "logo": "https://elevenlabs.io/favicon.svg"
+  },
+  {
+    "id": "tool013",
+    "name_he": "Make (Integromat)",
+    "name_en": "Make (Integromat)",
+    "category": "automation",
+    "url": "https://www.make.com",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "פלטפורמת אוטומציה ויזואלית לחיבור אפליקציות ובניית תהליכי עבודה מורכבים",
+    "description_en": "Visual automation platform for connecting apps and building complex workflows",
+    "pros_he": [
+      "ממשק ויזואלי",
+      "יכולות מתקדמות",
+      "גרסה חינמית טובה",
+      "אינטגרציות רבות"
+    ],
+    "cons_he": [
+      "עקומת למידה",
+      "לפעמים מסובך",
+      "תיעוד באנגלית"
+    ],
+    "use_cases_he": [
+      "אוטומציית CRM",
+      "סנכרון נתונים",
+      "תהליכי עבודה",
+      "אינטגרציות"
+    ],
+    "logo": "https://www.make.com/en/favicon.svg"
+  },
+  {
+    "id": "tool014",
+    "name_he": "Zapier",
+    "name_en": "Zapier",
+    "category": "automation",
+    "url": "https://zapier.com",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "פלטפורמת אוטומציה פופולרית לחיבור אפליקציות ואוטומציה של משימות",
+    "description_en": "Popular automation platform for connecting apps and automating tasks",
+    "pros_he": [
+      "קל ללמידה",
+      "אינטגרציות רבות",
+      "תמיכה טובה",
+      "ממשק פשוט"
+    ],
+    "cons_he": [
+      "יקר",
+      "פחות גמיש",
+      "מוגבל בגרסה חינמית"
+    ],
+    "use_cases_he": [
+      "אוטומציות פשוטות",
+      "סנכרון מערכות",
+      "התראות",
+      "העברת נתונים"
+    ],
+    "logo": "https://cdn.zapier.com/zapier/images/favicon.ico"
+  },
+  {
+    "id": "tool015",
+    "name_he": "n8n",
+    "name_en": "n8n",
+    "category": "automation",
+    "url": "https://n8n.io",
+    "pricing": "free-oss",
+    "rating": 5,
+    "description_he": "פלטפורמת אוטומציה קוד-פתוח עם שליטה מלאה - self-hosted או בענן",
+    "description_en": "Open-source automation platform with full control - self-hosted or cloud",
+    "pros_he": [
+      "קוד פתוח",
+      "גמישות מלאה",
+      "self-hosted",
+      "חינם לגמרי"
+    ],
+    "cons_he": [
+      "דורש התקנה",
+      "טכני יותר",
+      "תיעוד מוגבל"
+    ],
+    "use_cases_he": [
+      "אוטומציה מתקדמת",
+      "אינטגרציות מותאמות",
+      "תהליכים מורכבים"
+    ],
+    "logo": "https://n8n.io/favicon.ico"
+  },
+  {
+    "id": "tool016",
+    "name_he": "Perplexity AI",
+    "name_en": "Perplexity AI",
+    "category": "productivity",
+    "url": "https://www.perplexity.ai",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "מנוע חיפוש AI שמשלב תשובות מהאינטרנט עם מקורות מצוטטים",
+    "description_en": "AI search engine combining internet answers with cited sources",
+    "pros_he": [
+      "מקורות מצוטטים",
+      "תשובות עדכניות",
+      "ממשק נקי",
+      "מהיר"
+    ],
+    "cons_he": [
+      "לפעמים שטחי",
+      "פחות עומק",
+      "תלוי באינטרנט"
+    ],
+    "use_cases_he": [
+      "מחקר מהיר",
+      "שאלות עדכניות",
+      "השוואת מקורות"
+    ],
+    "logo": "https://www.perplexity.ai/favicon.svg"
+  },
+  {
+    "id": "tool017",
+    "name_he": "Otter.ai",
+    "name_en": "Otter.ai",
+    "category": "voice",
+    "url": "https://otter.ai",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "תמלול פגישות וקובץ אודיו בזמן אמת - מושלם לפגישות ואירועים",
+    "description_en": "Real-time meeting and audio file transcription - perfect for meetings and events",
+    "pros_he": [
+      "תמלול בזמן אמת",
+      "שילוב Zoom",
+      "זיהוי דוברים",
+      "חיפוש בתמלילים"
+    ],
+    "cons_he": [
+      "רק אנגלית",
+      "מוגבל בגרסה חינמית",
+      "דיוק משתנה"
+    ],
+    "use_cases_he": [
+      "תמלול פגישות",
+      "ראיונות",
+      "הרצאות",
+      "פודקאסטים"
+    ],
+    "logo": "https://otter.ai/favicon.ico"
+  },
+  {
+    "id": "tool018",
+    "name_he": "Tome",
+    "name_en": "Tome",
+    "category": "productivity",
+    "url": "https://tome.app",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "יצירת מצגות AI אינטראקטיביות מטקסט - עיצוב אוטומטי ותוכן חכם",
+    "description_en": "Create AI-powered interactive presentations from text - automatic design and smart content",
+    "pros_he": [
+      "עיצוב אוטומטי",
+      "מצגות מהירות",
+      "אינטראקטיבי",
+      "טקסט ותמונות"
+    ],
+    "cons_he": [
+      "פחות גמיש מPowerPoint",
+      "מוגבל בהתאמות",
+      "דורש אינטרנט"
+    ],
+    "use_cases_he": [
+      "מצגות עסקיות",
+      "פיצ'ים",
+      "דוחות",
+      "תיקי עבודות"
+    ],
+    "logo": "https://tome.app/favicon.ico"
+  },
+  {
+    "id": "tool019",
+    "name_he": "Descript",
+    "name_en": "Descript",
+    "category": "video",
+    "url": "https://www.descript.com",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "עריכת וידאו ואודיו כמו עריכת טקסט - תמלול, חיתוך והסרת רעשים",
+    "description_en": "Edit video and audio like editing text - transcription, cutting and noise removal",
+    "pros_he": [
+      "עריכה קלה",
+      "תמלול מובנה",
+      "הסרת רעשים",
+      "שיבוט קול"
+    ],
+    "cons_he": [
+      "יקר למשתמש רגיל",
+      "דורש חשוב טוב",
+      "עקומת למידה"
+    ],
+    "use_cases_he": [
+      "פודקאסטים",
+      "סרטוני YouTube",
+      "ווידעון פגישות",
+      "תוכן וידאו"
+    ],
+    "logo": "https://www.descript.com/favicon.ico"
+  },
+  {
+    "id": "tool020",
+    "name_he": "Beautiful.ai",
+    "name_en": "Beautiful.ai",
+    "category": "productivity",
+    "url": "https://www.beautiful.ai",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "יצירת מצגות מעוצבות אוטומטית - עיצוב חכם שמתאים עצמו",
+    "description_en": "Automatically designed presentations - smart design that adapts itself",
+    "pros_he": [
+      "עיצוב אוטומטי",
+      "תבניות מקצועיות",
+      "קל ללמידה",
+      "שיתוף פעולה"
+    ],
+    "cons_he": [
+      "יקר",
+      "פחות גמיש",
+      "מוגבל בהתאמות"
+    ],
+    "use_cases_he": [
+      "מצגות עסקיות",
+      "פיצ'ים למשקיעים",
+      "דוחות",
+      "תכניות עבודה"
+    ],
+    "logo": "https://www.beautiful.ai/favicon.ico"
+  },
+  {
+    "id": "tool021",
+    "name_he": "Hugging Face",
+    "name_en": "Hugging Face",
+    "category": "coding",
+    "url": "https://huggingface.co",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "פלטפורמה ענקית למודלי AI קוד-פתוח - מטקסט דרך תמונה ועד קול",
+    "description_en": "Massive platform for open-source AI models - from text through image to voice"
+  },
+  {
+    "id": "tool022",
+    "name_he": "Stable Diffusion",
+    "name_en": "Stable Diffusion",
+    "category": "design",
+    "url": "https://stability.ai",
+    "pricing": "free-oss",
+    "rating": 4.5,
+    "description_he": "מחולל תמונות AI קוד-פתוח - יכול לרוץ על המחשב שלכם",
+    "description_en": "Open-source AI image generator - can run on your computer"
+  },
+  {
+    "id": "tool023",
+    "name_he": "Murf AI",
+    "name_en": "Murf AI",
+    "category": "voice",
+    "url": "https://murf.ai",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "המרת טקסט לדיבור עם קולות מקצועיים - מעולה לנרציה",
+    "description_en": "Text-to-speech with professional voices - great for narration"
+  },
+  {
+    "id": "tool024",
+    "name_he": "Pictory",
+    "name_en": "Pictory",
+    "category": "video",
+    "url": "https://pictory.ai",
+    "pricing": "paid",
+    "rating": 4,
+    "description_he": "יצירת סרטונים קצרים מבלוגים ומאמרים - אידיאלי לרשתות חברתיות",
+    "description_en": "Create short videos from blogs and articles - ideal for social media"
+  },
+  {
+    "id": "tool025",
+    "name_he": "Lumen5",
+    "name_en": "Lumen5",
+    "category": "video",
+    "url": "https://lumen5.com",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "הפיכת תוכן כתוב לסרטונים מרשימים - טמפלייטים מוכנים",
+    "description_en": "Turn written content into impressive videos - ready templates"
+  },
+  {
+    "id": "tool026",
+    "name_he": "Fireflies.ai",
+    "name_en": "Fireflies.ai",
+    "category": "voice",
+    "url": "https://fireflies.ai",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "תמלול והקלטת פגישות אוטומטית - משתלב עם Zoom, Meet ועוד",
+    "description_en": "Automatic meeting transcription and recording - integrates with Zoom, Meet and more"
+  },
+  {
+    "id": "tool027",
+    "name_he": "Wordtune",
+    "name_en": "Wordtune",
+    "category": "content",
+    "url": "https://www.wordtune.com",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "כלי לשכתוב והשבחת משפטים - הופך כתיבה רגילה למקצועית",
+    "description_en": "Tool for rewriting and enhancing sentences - turns regular writing professional"
+  },
+  {
+    "id": "tool028",
+    "name_he": "Rytr",
+    "name_en": "Rytr",
+    "category": "content",
+    "url": "https://rytr.me",
+    "pricing": "freemium",
+    "rating": 3.5,
+    "description_he": "כתיבת תוכן AI במחיר נגיש - חלופה זולה ל-Jasper",
+    "description_en": "AI content writing at affordable price - cheap alternative to Jasper"
+  },
+  {
+    "id": "tool029",
+    "name_he": "Writesonic",
+    "name_en": "Writesonic",
+    "category": "content",
+    "url": "https://writesonic.com",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "כלי כתיבה AI רב-תכליתי - מבלוגים ועד מודעות",
+    "description_en": "Versatile AI writing tool - from blogs to ads"
+  },
+  {
+    "id": "tool030",
+    "name_he": "Jenni AI",
+    "name_en": "Jenni AI",
+    "category": "content",
+    "url": "https://jenni.ai",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "עוזר כתיבה AI למאמרים אקדמיים ומחקריים",
+    "description_en": "AI writing assistant for academic and research papers"
+  },
+  {
+    "id": "tool031",
+    "name_he": "Simplified",
+    "name_en": "Simplified",
+    "category": "design",
+    "url": "https://simplified.com",
+    "pricing": "freemium",
+    "rating": 4,
+    "description_he": "פלטפורמת All-in-One - עיצוב, כתיבה, וידאו וניהול מדיה חברתית",
+    "description_en": "All-in-One platform - design, writing, video and social media management"
+  },
+  {
+    "id": "tool032",
+    "name_he": "Designs.ai",
+    "name_en": "Designs.ai",
+    "category": "design",
+    "url": "https://designs.ai",
+    "pricing": "paid",
+    "rating": 3.5,
+    "description_he": "חבילת כלי עיצוב AI - לוגו, וידאו, דיבור וכתיבה",
+    "description_en": "AI design tool suite - logo, video, speech and writing"
+  },
+  {
+    "id": "tool033",
+    "name_he": "Looka",
+    "name_en": "Looka",
+    "category": "design",
+    "url": "https://looka.com",
+    "pricing": "paid",
+    "rating": 4,
+    "description_he": "מחולל לוגו AI - יוצר זהות מותגית מלאה",
+    "description_en": "AI logo generator - creates complete brand identity"
+  },
+  {
+    "id": "tool034",
+    "name_he": "Brandmark",
+    "name_en": "Brandmark",
+    "category": "design",
+    "url": "https://brandmark.io",
+    "pricing": "paid",
+    "rating": 4,
+    "description_he": "יצירת לוגו ומיתוג חכם - אלגוריתמים מתקדמים",
+    "description_en": "Smart logo creation and branding - advanced algorithms"
+  },
+  {
+    "id": "tool035",
+    "name_he": "Remove.bg",
+    "name_en": "Remove.bg",
+    "category": "design",
+    "url": "https://www.remove.bg",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "הסרת רקע מתמונות באופן מושלם - המובילה בתחום",
+    "description_en": "Perfect background removal from images - leader in the field"
+  },
+  {
+    "id": "tool036",
+    "name_he": "Cleanup.pictures",
+    "name_en": "Cleanup.pictures",
+    "category": "design",
+    "url": "https://cleanup.pictures",
+    "pricing": "free",
+    "rating": 4.5,
+    "description_he": "הסרת אובייקטים מתמונות חינם - מושלם לניקוי תמונות",
+    "description_en": "Remove objects from photos free - perfect for cleaning images"
+  },
+  {
+    "id": "tool037",
+    "name_he": "Topaz Photo AI",
+    "name_en": "Topaz Photo AI",
+    "category": "design",
+    "url": "https://www.topazlabs.com/topaz-photo-ai",
+    "pricing": "paid",
+    "rating": 5,
+    "description_he": "שיפור והגדלת תמונות ברמה מקצועית - חובה לכל מעצב",
+    "description_en": "Professional-level photo enhancement and enlargement - must-have for every designer"
+  },
+  {
+    "id": "tool038",
+    "name_he": "Adobe Firefly",
+    "name_en": "Adobe Firefly",
+    "category": "design",
+    "url": "https://www.adobe.com/products/firefly.html",
+    "pricing": "freemium",
+    "rating": 5,
+    "description_he": "AI מובנה של אדובי - Generative Fill, Expand ועוד",
+    "description_en": "Adobe's built-in AI - Generative Fill, Expand and more"
+  },
+  {
+    "id": "tool039",
+    "name_he": "Khroma",
+    "name_en": "Khroma",
+    "category": "design",
+    "url": "http://khroma.co",
+    "pricing": "free",
+    "rating": 4.5,
+    "description_he": "מחולל פלטות צבעים חכם - לומד את הסגנון שלך",
+    "description_en": "Smart color palette generator - learns your style"
+  },
+  {
+    "id": "tool040",
+    "name_he": "Coolors",
+    "name_en": "Coolors",
+    "category": "design",
+    "url": "https://coolors.co",
+    "pricing": "freemium",
+    "rating": 4.5,
+    "description_he": "יצירת פלטות צבעים מהירה וקלה - כלי פופולרי למעצבים",
+    "description_en": "Fast and easy color palette creation - popular tool for designers"
+  }
+]

@@ -1,0 +1,279 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
+import AnimatedElement from '../components/ui/AnimatedElement';
+import { Search, ExternalLink, Star, Filter } from 'lucide-react';
+import toolsData from '../../all-tools-final.json';
+
+export default function Tools({ language = 'he' }) {
+  const rtl = language === 'he';
+  const [tools, setTools] = useState([]);
+  const [filteredTools, setFilteredTools] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [loading, setLoading] = useState(true);
+
+  // Categories mapping
+  const categories = {
+    all: rtl ? 'הכל' : 'All',
+    content: rtl ? 'יצירת תוכן' : 'Content Creation',
+    design: rtl ? 'עיצוב וגרפיקה' : 'Design & Graphics',
+    productivity: rtl ? 'פרודוקטיביות' : 'Productivity',
+    data: rtl ? 'ניתוח נתונים' : 'Data Analysis',
+    audio: rtl ? 'אודיו ומוזיקה' : 'Audio & Music',
+    video: rtl ? 'וידאו ועריכה' : 'Video & Editing',
+    development: rtl ? 'פיתוח תוכנה' : 'Software Development'
+  };
+
+  useEffect(() => {
+    // Simulate loading and then set tools
+    const loadTools = async () => {
+      try {
+        setTools(toolsData);
+        setFilteredTools(toolsData);
+      } catch (error) {
+        console.error('Error loading tools:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadTools();
+  }, []);
+
+  useEffect(() => {
+    let filtered = tools;
+
+    // Filter by search term
+    if (searchTerm) {
+      filtered = filtered.filter(tool =>
+        (rtl ? tool.name_he : tool.name_en).toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (rtl ? tool.description_he : tool.description_en).toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Filter by category
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(tool => tool.category === selectedCategory);
+    }
+
+    setFilteredTools(filtered);
+  }, [searchTerm, selectedCategory, tools, rtl]);
+
+  const renderStars = (rating) => {
+    return [...Array(5)].map((_, i) => (
+      <Star
+        key={i}
+        className={`w-4 h-4 ${i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-400'}`}
+      />
+    ));
+  };
+
+  const getPricingBadge = (pricing) => {
+    const pricingLabels = {
+      free: { text: rtl ? 'חינם' : 'Free', color: 'bg-secondary-500/20 text-secondary-400' },
+      freemium: { text: rtl ? 'חינמי + פרימיום' : 'Freemium', color: 'bg-primary-500/20 text-primary-400' },
+      paid: { text: rtl ? 'בתשלום' : 'Paid', color: 'bg-accent-500/20 text-accent-400' }
+    };
+
+    const pricingInfo = pricingLabels[pricing] || pricingLabels.free;
+    return (
+      <span className={`px-2 py-1 rounded-full text-xs font-medium ${pricingInfo.color}`}>
+        {pricingInfo.text}
+      </span>
+    );
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-600"></div>
+      </div>
+    );
+  }
+
+  return (
+    <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16">
+      <div className="container mx-auto px-4">
+        {/* Header */}
+        <AnimatedElement animation="fadeIn" className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            {rtl ? 'כלים מומלצים' : 'Recommended Tools'}
+          </h1>
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+            {rtl
+              ? 'אוסף מקיף של הכלים הטובים ביותר בתחום הבינה המלאכותית - מבוקר ומעודכן באופן שוטף'
+              : 'Comprehensive collection of the best tools in artificial intelligence - reviewed and regularly updated'}
+          </p>
+        </AnimatedElement>
+
+        {/* Filters */}
+        <AnimatedElement animation="slideUp" className="mb-12">
+          <div className="glass-card rounded-2xl p-6 border border-white/10">
+            <div className="flex flex-col lg:flex-row gap-6">
+              {/* Search */}
+              <div className="flex-1">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                  <input
+                    type="text"
+                    placeholder={rtl ? 'חפש כלים...' : 'Search tools...'}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:border-cyan-400 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Category Filter */}
+              <div className="lg:w-64">
+                <div className="relative">
+                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 bg-slate-800/50 border border-white/10 rounded-xl text-white focus:border-cyan-400 focus:outline-none appearance-none"
+                  >
+                    {Object.entries(categories).map(([key, label]) => (
+                      <option key={key} value={key} className="bg-slate-800">
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedElement>
+
+        {/* Tools Grid */}
+        <AnimatedElement animation="fadeIn">
+          {filteredTools.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-slate-400 text-lg">
+                {rtl ? 'לא נמצאו כלים התואמים לחיפוש שלך' : 'No tools found matching your search'}
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredTools.map((tool) => (
+                <div
+                  key={tool.id}
+                  className="glass-card rounded-xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 hover:transform hover:scale-105"
+                >
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={tool.logo}
+                        alt={rtl ? tool.name_he : tool.name_en}
+                        className="w-12 h-12 rounded-lg object-contain bg-white/10 p-1"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/48x48?text=AI';
+                        }}
+                      />
+                      <div>
+                        <h3 className="text-xl font-bold text-white">
+                          {rtl ? tool.name_he : tool.name_en}
+                        </h3>
+                        {getPricingBadge(tool.pricing)}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      {renderStars(tool.rating)}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-slate-300 mb-4 text-sm leading-relaxed">
+                    {rtl ? tool.description_he : tool.description_en}
+                  </p>
+
+                  {/* Pros */}
+                  {tool.pros_he && (
+                    <div className="mb-4">
+                      <h4 className="text-green-400 font-medium text-sm mb-2">
+                        {rtl ? 'יתרונות:' : 'Pros:'}
+                      </h4>
+                      <ul className="text-slate-400 text-xs space-y-1">
+                        {(rtl ? tool.pros_he : tool.pros_en || tool.pros_he)?.slice(0, 2).map((pro, index) => (
+                          <li key={index} className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 bg-secondary-400 rounded-full"></span>
+                            {pro}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Use Cases */}
+                  {tool.use_cases_he && (
+                    <div className="mb-4">
+                      <h4 className="text-secondary-400 font-medium text-sm mb-2">
+                        {rtl ? 'שימושים נפוצים:' : 'Common Uses:'}
+                      </h4>
+                      <div className="flex flex-wrap gap-1">
+                        {(rtl ? tool.use_cases_he : tool.use_cases_en || tool.use_cases_he)?.slice(0, 3).map((useCase, index) => (
+                          <span
+                            key={index}
+                            className="px-2 py-1 bg-secondary-500/20 text-secondary-300 rounded text-xs"
+                          >
+                            {useCase}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CTA */}
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 w-full justify-center px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-900 rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/30"
+                  >
+                    <span>{rtl ? 'בקר באתר' : 'Visit Website'}</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
+        </AnimatedElement>
+
+        {/* Stats */}
+        <AnimatedElement animation="fadeIn" className="mt-16">
+          <div className="glass-card rounded-2xl p-8 border border-white/10 text-center">
+            <h2 className="text-2xl font-bold text-white mb-6">
+              {rtl ? 'סטטיסטיקות הכלים' : 'Tools Statistics'}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div>
+                <div className="text-3xl font-bold text-secondary-300">{tools.length}</div>
+                <div className="text-slate-400">{rtl ? 'כלים בסה"כ' : 'Total Tools'}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-green-400">
+                  {tools.filter(t => t.pricing === 'free').length}
+                </div>
+                <div className="text-slate-400">{rtl ? 'כלים חינמיים' : 'Free Tools'}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-400">
+                  {Object.keys(categories).length - 1}
+                </div>
+                <div className="text-slate-400">{rtl ? 'קטגוריות' : 'Categories'}</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-purple-400">
+                  {Math.round(tools.reduce((sum, t) => sum + t.rating, 0) / tools.length * 10) / 10}
+                </div>
+                <div className="text-slate-400">{rtl ? 'דירוג ממוצע' : 'Average Rating'}</div>
+              </div>
+            </div>
+          </div>
+        </AnimatedElement>
+      </div>
+    </section>
+  );
+}

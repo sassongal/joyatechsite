@@ -59,24 +59,24 @@ export default function MagazineArticle({ language = 'he' }) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary-600"></div>
       </div>
     );
   }
 
   if (!article) {
     return (
-      <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-neutral-50">
+      <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4">
             {rtl ? 'מאמר לא נמצא' : 'Article Not Found'}
           </h1>
-          <p className="text-neutral-700 mb-8">
+          <p className="text-slate-300 mb-8">
             {rtl ? 'המאמר שחיפשת לא קיים או הועבר' : 'The article you\'re looking for doesn\'t exist or has been moved'}
           </p>
           <Link
             to={createPageUrl('Magazine') + `?lang=${language}`}
-            className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             {rtl ? 'חזור למגזין' : 'Back to Magazine'}
@@ -102,13 +102,13 @@ export default function MagazineArticle({ language = 'he' }) {
   });
 
   return (
-    <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-neutral-50">
+    <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16">
       <div className="container mx-auto px-4">
         {/* Back Button */}
         <AnimatedElement animation="fadeIn" className="mb-8">
           <Link
             to={createPageUrl('Magazine') + `?lang=${language}`}
-            className="inline-flex items-center gap-2 text-secondary-700 hover:text-primary-600 transition-colors"
+            className="inline-flex items-center gap-2 text-secondary-300 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             {rtl ? 'חזור למגזין' : 'Back to Magazine'}
@@ -120,18 +120,18 @@ export default function MagazineArticle({ language = 'he' }) {
           <div className="max-w-4xl mx-auto">
             {/* Category Badge */}
             <div className="mb-6">
-              <span className="px-4 py-2 bg-secondary-500/20 text-secondary-700 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-secondary-500/20 text-secondary-300 rounded-full text-sm font-medium">
                 {rtl ? 'מאמר' : 'Article'}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               {rtl ? article.title_he : article.title_en}
             </h1>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-6 text-neutral-500 mb-8">
+            <div className="flex flex-wrap items-center gap-6 text-slate-400 mb-8">
               <div className="flex items-center gap-2">
                 <User className="w-5 h-5" />
                 <span>{article.author}</span>
@@ -147,7 +147,7 @@ export default function MagazineArticle({ language = 'he' }) {
             </div>
 
             {/* Excerpt */}
-            <p className="text-xl text-neutral-700 leading-relaxed mb-8">
+            <p className="text-xl text-slate-300 leading-relaxed mb-8">
               {rtl ? article.excerpt_he : article.excerpt_en}
             </p>
 
@@ -164,12 +164,12 @@ export default function MagazineArticle({ language = 'he' }) {
             <div className="flex items-center gap-4">
               <button
                 onClick={shareArticle}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
               >
                 <Share2 className="w-4 h-4" />
                 {rtl ? 'שתף' : 'Share'}
               </button>
-              <button className="inline-flex items-center gap-2 px-4 py-2 bg-secondary-500 hover:bg-secondary-600 text-white rounded-lg transition-colors">
+              <button className="inline-flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">
                 <Bookmark className="w-4 h-4" />
                 {rtl ? 'שמור' : 'Save'}
               </button>
@@ -180,9 +180,9 @@ export default function MagazineArticle({ language = 'he' }) {
         {/* Article Content */}
         <AnimatedElement animation="fadeIn" className="mb-16">
           <div className="max-w-4xl mx-auto">
-            <div className="glass-card rounded-2xl p-8 md:p-12 border border-neutral-200">
+            <div className="glass-card rounded-2xl p-8 md:p-12 border border-white/10">
               <div
-                className="prose prose-lg max-w-none text-neutral-800"
+                className="prose prose-invert prose-lg max-w-none"
                 dangerouslySetInnerHTML={{
                   __html: sanitizedContent
                 }}
@@ -195,14 +195,14 @@ export default function MagazineArticle({ language = 'he' }) {
         {article.tags && article.tags.length > 0 && (
           <AnimatedElement animation="fadeIn" className="mb-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-white mb-4">
                 {rtl ? 'תגיות:' : 'Tags:'}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {article.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-secondary-100 text-secondary-700 rounded-full text-sm hover:bg-secondary-200 transition-colors cursor-pointer"
+                    className="px-3 py-1 bg-slate-700 text-slate-300 rounded-full text-sm hover:bg-slate-600 transition-colors cursor-pointer"
                   >
                     #{tag}
                   </span>
@@ -216,14 +216,14 @@ export default function MagazineArticle({ language = 'he' }) {
         {relatedArticles.length > 0 && (
           <AnimatedElement animation="fadeIn">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
                 {rtl ? 'מאמרים קשורים' : 'Related Articles'}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedArticles.map((relatedArticle) => (
                   <article
                     key={relatedArticle.id}
-                    className="glass-card rounded-xl overflow-hidden border border-neutral-200 hover:border-primary-300 transition-all duration-300 group"
+                    className="glass-card rounded-xl overflow-hidden border border-white/10 hover:border-secondary-400/30 transition-all duration-300 group"
                   >
                     <Link to={createPageUrl('MagazineArticle').replace('magazinearticle', `magazine/${relatedArticle.id}`) + `?lang=${language}`}>
                       <div className="aspect-video overflow-hidden">
@@ -235,30 +235,30 @@ export default function MagazineArticle({ language = 'he' }) {
                       </div>
                       <div className="p-6">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="px-3 py-1 bg-secondary-500/20 text-secondary-700 rounded-full text-sm font-medium">
+                          <span className="px-3 py-1 bg-secondary-500/20 text-secondary-300 rounded-full text-sm font-medium">
                             {rtl ? 'מאמר' : 'Article'}
                           </span>
-                          <span className="text-neutral-400 text-sm">•</span>
-                          <div className="flex items-center gap-1 text-neutral-500 text-sm">
+                          <span className="text-slate-400 text-sm">•</span>
+                          <div className="flex items-center gap-1 text-slate-400 text-sm">
                             <Clock className="w-4 h-4" />
                             {relatedArticle.readTime} {rtl ? 'דק׳' : 'min'}
                           </div>
                         </div>
 
-                        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-secondary-700 transition-colors line-clamp-2">
+                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-secondary-300 transition-colors line-clamp-2">
                           {rtl ? relatedArticle.title_he : relatedArticle.title_en}
                         </h3>
 
-                        <p className="text-neutral-700 mb-4 line-clamp-3 text-sm">
+                        <p className="text-slate-300 mb-4 line-clamp-3 text-sm">
                           {rtl ? relatedArticle.excerpt_he : relatedArticle.excerpt_en}
                         </p>
 
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-neutral-500 text-sm">
+                          <div className="flex items-center gap-2 text-slate-400 text-sm">
                             <Calendar className="w-4 h-4" />
                             {formatDate(relatedArticle.date)}
                           </div>
-                          <div className="text-secondary-700 group-hover:text-secondary-400 transition-colors text-sm font-medium">
+                          <div className="text-secondary-300 group-hover:text-secondary-400 transition-colors text-sm font-medium">
                             {rtl ? 'קרא עוד' : 'Read More'} →
                           </div>
                         </div>

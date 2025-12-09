@@ -1,0 +1,249 @@
+[
+  {
+    "id": "art001",
+    "title_he": "מדריך למתחילים: איך לשלב AI באוטומציה של העסק שלך",
+    "title_en": "Beginner's Guide: How to Integrate AI in Your Business Automation",
+    "slug": "ai-automation-beginners-guide",
+    "category": "tutorials",
+    "author": "Gal Sasson",
+    "date": "2024-12-01",
+    "readTime": 8,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200",
+    "excerpt_he": "גלו איך לשלב בינה מלאכותית בתהליכים העסקיים היומיומיים שלכם - מדריך מעשי ופשוט למתחילים",
+    "excerpt_en": "Discover how to integrate artificial intelligence into your daily business processes - a practical and simple guide for beginners",
+    "content_he": "# מדריך למתחילים: איך לשלב AI באוטומציה של העסק שלך\n\n## מבוא\n\nבשנים האחרונות, בינה מלאכותית (AI) הפכה מטכנולוגיה עתידנית לכלי נגיש שכל עסק יכול ליישם. אבל מאיפה מתחילים? במאמר זה אשתף אתכם בגישה המעשית שלי לשילוב AI באופן הדרגתי ואפקטיבי.\n\n## למה כדאי לכם להתחיל עכשיו?\n\nהמציאות היא שהעסקים שמשלבים אוטומציה מונעת AI היום זוכים ליתרון תחרותי משמעותי:\n- **חיסכון בזמן**: משימות שלוקחות שעות מתבצעות בדקות\n- **הפחתת טעויות**: אוטומציה מבטלת את הטעות האנושית\n- **שיפור שירות**: תגובות מהירות יותר ללקוחות\n- **התמקדות באסטרטגיה**: פינוי זמן למשימות בעלות ערך גבוה\n\n## מאיפה מתחילים? 3 השלבים הראשונים\n\n### שלב 1: זיהוי משימות חוזרות\n\nהצעד הראשון הוא לזהות את המשימות החוזרות בעסק שלכם. שאלו את עצמכם:\n- אילו משימות אתם עושים כל יום שדומות מאוד?\n- איפה אתם מעתיקים ומדביקים מידע בין מערכות?\n- אילו תהליכים דורשים המתנה או מעקב ידני?\n\n**דוגמה מהשטח**: חברה שעבדתי איתה העתיקה ידנית כל לקוח חדש מהמייל ל-CRM. זה לקח 10 דקות ללקוח, 50 פעמים בשבוע = 8 שעות שבועיות!\n\n### שלב 2: בחירת הכלים הנכונים\n\nלא כל כלי מתאים לכל עסק. הנה הטריאדה שלי לאוטומציה בסיסית:\n\n**1. פלטפורמת אוטומציה**:\n- **Make.com** (מומלץ למתחילים) - ממשק ויזואלי, קל ללמידה\n- **n8n** (למתקדמים) - יותר גמיש, דורש התקנה\n- **Zapier** (הכי נגיש) - פשוט מאוד אבל יקר יותר\n\n**2. AI לעיבוד טקסט**:\n- **ChatGPT API** - מעולה לסיכומים, כתיבה, ניתוח\n- **Claude API** - טוב יותר בהבנת הקשר ארוך\n- **Gemini** - אופציה חינמית לנפחים קטנים\n\n**3. מערכות קיימות**:\nהתחילו עם המערכות שכבר יש לכם: Gmail, Google Sheets, CRM, WhatsApp Business\n\n### שלב 3: הפרויקט הראשון - פשוט ומשמעותי\n\nהפרויקט הראשון שלכם צריך להיות:\n✅ פשוט מספיק שתוכלו לסיים אותו בשבוע\n✅ משמעותי מספיק שתרגישו את ההבדל\n✅ ניתן למדידה - תדעו שזה עובד\n\n## דוגמה לפרויקט ראשון מנצח\n\n### אוטומציה של טיפול בפניות לקוחות\n\n**הבעיה**: מיילים של לקוחות נכנסים, צריך לקרוא, לסווג, להעביר למחלקה הנכונה ולענות.\n\n**הפתרון האוטומטי**:\n1. המייל נכנס לתיבה ייעודית\n2. Make קולט את המייל\n3. ChatGPT מנתח את התוכן וקובע:\n   - האם זו פנייה דחופה?\n   - לאיזו מחלקה להעביר?\n   - מה הסיכוי שזה לקוח פוטנציאלי?\n4. המערכת:\n   - יוצרת כרטיס ב-CRM\n   - שולחת הודעת WhatsApp למנהל הרלוונטי\n   - שולחת מייל תשובה אוטומטי ללקוח\n5. אם דחוף - הודעת SMS למנכ\"ל\n\n**התוצאה**: זמן תגובה ירד מ-4 שעות לפחות מ-5 דקות. אף פנייה לא נשכחת.\n\n## כלים ספציפיים שאני ממליץ\n\n### לניהול פרויקטים\n- **ClickUp + AI** - משימות אוטומטיות, סיכומים של פגישות\n- **Notion AI** - מסמכים חכמים שמתעדכנים לבד\n\n### לשיווק ותוכן\n- **Canva + Magic Write** - עיצובים וטקסטים בקליק\n- **Jasper AI** - כתיבת תוכן שיווקי\n\n### לשירות לקוחות\n- **Tidio + AI** - צ'אטבוט שמבין עברית\n- **Intercom** - תמיכה חכמה\n\n## טעויות נפוצות שכדאי להימנע מהן\n\n### 1. לנסות לאוטמט הכל בבת אחת\n❌ **אל תעשו**: \"בואו נאוטמט את כל העסק!\"\n✅ **תעשו**: התחילו מתהליך אחד, הצליחו, ואז תגדילו.\n\n### 2. לא לבדוק את האוטומציה\n❌ **אל תעשו**: להפעיל ולשכוח\n✅ **תעשו**: בדקו שבועיים, עקבו, תקנו באגים\n\n### 3. לשכוח את הצוות\nהאנשים שלכם צריכים להבין מה קורה. אחרת - התנגדות.\n\n### 4. לא למדוד תוצאות\nאם אתם לא מודדים - לא תדעו אם זה עובד.\n\n## תכנית פעולה ל-30 הימים הראשונים\n\n**שבוע 1: למידה וזיהוי**\n- יום 1-2: למדו בסיסי Make/Zapier (יש הרבה טיוטוריאלים ביוטיוב)\n- יום 3-4: רשמו רשימה של 10 משימות חוזרות\n- יום 5-7: בחרו את המשימה הכי מעצבנת/גוזלת זמן\n\n**שבוע 2: התקנה ויסודות**\n- פתחו חשבונות בכלים הנחוצים\n- חברו את המערכות הקיימות שלכם\n- בנו את האוטומציה הראשונה במצב \"טסט\"\n\n**שבוע 3: בדיקות ושיפורים**\n- הפעילו במצב טסט\n- עקבו אחרי תוצאות\n- תקנו את מה שלא עובד\n\n**שבוע 4: הפעלה מלאה**\n- העבירו לייצור\n- הדריכו את הצוות\n- תעדו את התהליך\n\n## משאבים נוספים ללמידה\n\n### קורסים בחינם\n- **YouTube - Automation School** (אנגלית אבל עם כתוביות)\n- **Make Academy** - הקורס הרשמי של Make\n\n### קהילות\n- **קבוצת \"אוטומציה ישראל\" בפייסבוק** - עזרה בעברית\n- **r/nocode** ב-Reddit - קהילה עולמית\n\n## מה הלאה?\n\nאחרי שתצליחו באוטומציה הראשונה, העולם פתוח:\n- אוטומציית דיווחים\n- מעקב אוטומטי אחרי לידים\n- יצירת תוכן אוטומטית\n- ניתוח נתונים חכם\n- אוטומציית רשתות חברתיות\n\n## סיכום\n\nאוטומציה עם AI זה לא מדע טילים. זה מתחיל מלזהות משימה חוזרת, לבחור את הכלי הנכון, ולבנות פתרון פשוט. ההצלחה נמדדת בזמן שחוסכים ובטעויות שמונעים.\n\nהעיקר - להתחיל קטן ולהצליח. כל אוטומציה מוצלחת מובילה לבטחון לבנות את הבאה.\n\n**רוצים עזרה בתכנון האוטומציה הראשונה שלכם?** צרו איתי קשר דרך האתר - אני מעניק ייעוץ ראשוני ללא עלות.",
+    "content_en": "# Beginner's Guide: How to Integrate AI in Your Business Automation\n\n## Introduction\n\nIn recent years, Artificial Intelligence (AI) has transformed from futuristic technology to an accessible tool that any business can implement. But where do you start? In this article, I'll share my practical approach to gradually and effectively integrating AI.\n\n## Why Should You Start Now?\n\nThe reality is that businesses integrating AI-driven automation today gain a significant competitive advantage:\n- **Time savings**: Tasks that take hours are completed in minutes\n- **Error reduction**: Automation eliminates human error\n- **Service improvement**: Faster customer responses\n- **Strategic focus**: Free up time for high-value tasks\n\n## Where to Start? 3 First Steps\n\n### Step 1: Identify Repetitive Tasks\n\nThe first step is identifying repetitive tasks in your business. Ask yourself:\n- Which tasks do you do daily that are very similar?\n- Where do you copy-paste information between systems?\n- Which processes require manual waiting or tracking?\n\n**Field Example**: A company I worked with manually copied every new customer from email to CRM. This took 10 minutes per customer, 50 times weekly = 8 hours weekly!\n\n### Step 2: Choose the Right Tools\n\nNot every tool fits every business. Here's my triad for basic automation:\n\n**1. Automation Platform**:\n- **Make.com** (recommended for beginners) - visual interface, easy to learn\n- **n8n** (for advanced users) - more flexible, requires installation\n- **Zapier** (most accessible) - very simple but more expensive\n\n**2. AI for Text Processing**:\n- **ChatGPT API** - excellent for summaries, writing, analysis\n- **Claude API** - better at understanding long context\n- **Gemini** - free option for small volumes\n\n**3. Existing Systems**:\nStart with the systems you already have: Gmail, Google Sheets, CRM, WhatsApp Business\n\n### Step 3: First Project - Simple and Meaningful\n\nYour first project should be:\n✅ Simple enough to finish in a week\n✅ Meaningful enough to feel the difference\n✅ Measurable - you'll know it works\n\n## Example of a Winning First Project\n\n### Customer Inquiry Handling Automation\n\n**The Problem**: Customer emails arrive, need to read, classify, forward to the right department and respond.\n\n**The Automated Solution**:\n1. Email arrives at dedicated inbox\n2. Make captures the email\n3. ChatGPT analyzes content and determines:\n   - Is this urgent?\n   - Which department to forward to?\n   - What's the likelihood this is a potential customer?\n4. The system:\n   - Creates CRM ticket\n   - Sends WhatsApp message to relevant manager\n   - Sends automatic reply email to customer\n5. If urgent - SMS to CEO\n\n**Result**: Response time dropped from 4 hours to less than 5 minutes. No inquiry forgotten.\n\n## Specific Tools I Recommend\n\n### For Project Management\n- **ClickUp + AI** - automatic tasks, meeting summaries\n- **Notion AI** - smart documents that update themselves\n\n### For Marketing & Content\n- **Canva + Magic Write** - designs and texts in one click\n- **Jasper AI** - marketing content writing\n\n### For Customer Service\n- **Tidio + AI** - chatbot that understands Hebrew\n- **Intercom** - smart support\n\n## Common Mistakes to Avoid\n\n### 1. Trying to Automate Everything at Once\n❌ **Don't do**: \"Let's automate the entire business!\"\n✅ **Do**: Start with one process, succeed, then scale.\n\n### 2. Not Testing the Automation\n❌ **Don't do**: Launch and forget\n✅ **Do**: Test for two weeks, monitor, fix bugs\n\n### 3. Forgetting Your Team\nYour people need to understand what's happening. Otherwise - resistance.\n\n### 4. Not Measuring Results\nIf you're not measuring - you won't know if it works.\n\n## 30-Day Action Plan\n\n**Week 1: Learning and Identification**\n- Day 1-2: Learn Make/Zapier basics (lots of YouTube tutorials)\n- Day 3-4: List 10 repetitive tasks\n- Day 5-7: Choose the most annoying/time-consuming task\n\n**Week 2: Setup and Foundations**\n- Open accounts in necessary tools\n- Connect your existing systems\n- Build first automation in \"test\" mode\n\n**Week 3: Testing and Improvements**\n- Activate in test mode\n- Track results\n- Fix what doesn't work\n\n**Week 4: Full Launch**\n- Move to production\n- Train your team\n- Document the process\n\n## Additional Learning Resources\n\n### Free Courses\n- **YouTube - Automation School**\n- **Make Academy** - Make's official course\n\n### Communities\n- **\"Israel Automation\" Facebook Group** - help in Hebrew\n- **r/nocode** on Reddit - global community\n\n## What's Next?\n\nAfter succeeding with your first automation, the world opens up:\n- Report automation\n- Automatic lead tracking\n- Automatic content creation\n- Smart data analysis\n- Social media automation\n\n## Summary\n\nAutomation with AI isn't rocket science. It starts with identifying a repetitive task, choosing the right tool, and building a simple solution. Success is measured in time saved and errors prevented.\n\nThe main thing - start small and succeed. Every successful automation builds confidence for the next one.\n\n**Want help planning your first automation?** Contact me through the website - I offer initial consultation at no cost.",
+    "tags": [
+      "automation",
+      "ai",
+      "beginners",
+      "tutorial"
+    ]
+  },
+  {
+    "id": "art002",
+    "title_he": "5 כלי AI שחייבים להיות לכל מעצב גרפי ב-2024",
+    "title_en": "5 Must-Have AI Tools for Every Graphic Designer in 2024",
+    "slug": "top-ai-design-tools-2024",
+    "category": "design",
+    "author": "Gal Sasson",
+    "date": "2024-11-25",
+    "readTime": 6,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200",
+    "excerpt_he": "רשימת כלי ה-AI המהפכניים שמשנים את עולם העיצוב הגרפי - מהגדלת תמונות ועד יצירת לוגו בשניות",
+    "excerpt_en": "List of revolutionary AI tools changing graphic design - from image upscaling to logo creation in seconds",
+    "content_he": "# 5 כלי AI שחייבים להיות לכל מעצב גרפי ב-2024\n\nעולם העיצוב הגרפי עובר מהפכה. כלי AI לא מחליפים מעצבים - הם הופכים אותם לסופר-מעצבים. הנה 5 הכלים שאני משתמש בהם כמעט כל יום.\n\n## 1. Midjourney - מלך יצירת התמונות\n\n**למה זה מדהים:**\nMidjourney יוצר תמונות ברמה כזו שקשה להבדיל מצילום מקצועי או איור ידני. במיוחד טוב ב:\n- תמונות קונספטואליות\n- אמנות פנטזיה\n- עיצובי דמויות\n- רקעים מרהיבים\n\n**איך אני משתמש בזה:**\nכשלקוח מבקש \"משהו יצירתי\" אבל לא יודע בדיוק מה - אני יוצר 20 וריאציות ב-Midjourney תוך 10 דקות. זה מאפשר ללקוח לראות אופציות ולהתגבש.\n\n**טיפ מקצועי:**\nתמיד הוסיפו בסוף הפרומפט: `--ar 16:9 --v 6` לתמונות רחבות באיכות הגבוהה ביותר.\n\n**מחיר:** $10-$60/חודש לפי השימוש\n\n## 2. Canva Pro + Magic Design - השוויצרי של המעצב\n\n**למה זה חובה:**\nCanva זה כבר לא רק \"כלי למתחילים\". עם תוספות ה-AI החדשות:\n- **Magic Write** - כותב את הטקסטים בעיצובים\n- **Background Remover** - מוציא רקעים בקליק\n- **Magic Resize** - מתאים עיצוב לכל מידות\n- **Brand Kit with AI** - שומר עקביות ברנדית\n\n**שימוש יומי:**\nפוסטים לרשתות חברתיות? בעבר: 2 שעות ל-10 פוסטים. עכשיו: 20 דקות.\n\n**המפתח להצלחה:**\nהכינו Templates אישיים עם הברנד של הלקוח פעם אחת, ואז כל עיצוב חדש לוקח דקות.\n\n**מחיר:** $120/שנה (כדאי לחכות למבצעים)\n\n## 3. Topaz Gigapixel AI - קסם להגדלת תמונות\n\n**הבעיה שזה פותר:**\nלקוח שלח לכם תמונה ברזולוציה נמוכה והוא רוצה להדפיס? בעבר - מצטער, לא אפשרי.\n\n**מה זה עושה:**\n- מגדיל תמונות פי 6 (**600%!**) בלי לאבד איכות\n- \"ממציא\" פיקסלים חדשים בצורה חכמה\n- משפר חדות ופרטים\n\n**דוגמה מטורפת:**\nתמונת פרופיל 500x500 פיקסל → 3000x3000 פיקסל וזה נראה מושלם להדפסה.\n\n**בשביל מי זה:**\n- מעצבי פרינט\n- מי שעובד עם תמונות ארכיון\n- מי שמקבל תמונות מלקוחות (כולנו...)\n\n**מחיר:** $99 רכישה חד-פעמית\n\n## 4. Adobe Firefly - ה-AI המובנה של אדובי\n\n**למה זה שונה:**\nFirefly משולב ישירות בתוך Photoshop ו-Illustrator. משמע - לא צריך לעזוב את תוכנת העבודה.\n\n**פיצ'רים מטורפים:**\n\n**Generative Fill:**\nצריכים להוסיף אובייקט לתמונה? פשוט מסמנים איזור וכותבים מה רוצים. התוכנה ממלאת.\n\n**Generative Expand:**\nתמונה קטנה מדי? \"תרחיב\" אותה וה-AI ימציא מה היה מחוץ לפריים.\n\n**Text to Vector:**\nכותבים \"lion logo minimalist\" ומקבלים וקטור ערוך!\n\n**הקטע החשוב:**\nכל התוכן של Firefly מבוסס על תמונות חוקיות של Adobe Stock - אין בעיות זכויות יוצרים.\n\n**מחיר:** כלול במנוי Creative Cloud (₪200/חודש)\n\n## 5. Khroma - מחולל פלטת צבעים חכם\n\n**הבעיה:**\nבחירת צבעים לפרויקט חדש יכולה לקחת שעות. \"האם הירוק הזה הולך עם הכתום הזה?\"\n\n**הפתרון:**\nKhroma לומד מה הצבעים שאתם אוהבים (עושים מבחן קצר), ואז יוצר:\n- פלטות אינסופיות בסגנון שלכם\n- צירופי צבעים שעובדים יחד\n- דוגמאות שימוש (טקסט על רקע, גרדיאנט וכו')\n\n**שימוש מעשי:**\nכל פרויקט חדש מתחיל ב-Khroma. 5 דקות ויש לי 10 אופציות לפלטות. חוסך המון \"אה... אולי כחול?\" עם הלקוח.\n\n**בונוס:**\nאפשר לשמור פלטות שאהבתם ולחזור אליהן.\n\n**מחיר:** חינם לגמרי!\n\n## כלים נוספים בתיק שלי\n\n### לאנימציה:\n- **Runway ML** - הופך תמונות לוידאו\n- **D-ID** - מנפיש תמונות סטטיות\n\n### לטקסט ולוגו:\n- **LogoAI** - מייצר לוגו על בסיס תיאור\n- **Fontjoy** - מוצא צירופי פונטים\n\n### למוקאפים:\n- **Smartmockups + AI** - מציב עיצובים על מוצרים\n\n## איך לשלב את כל זה?\n\n**תהליך העבודה שלי:**\n\n1. **קונספט** - Midjourney לרעיונות ראשוניים\n2. **עיצוב** - Canva/Photoshop + Firefly לביצוע\n3. **צבעים** - Khroma לבחירת פלטה\n4. **שיפור תמונות** - Topaz אם צריך\n5. **מוקאפים** - Smartmockups למצגת ללקוח\n\n**הכלל שלי:**\nAI עושה את 70% מהעבודה המשעממת. אני מוסיף את 30% היצירתיות שעושים את ההבדל.\n\n## האם AI מחליף מעצבים?\n\n**התשובה הקצרה: לא.**\n\n**התשובה הארוכה:**\nAI הופך מעצב טוב למעצב מעולה. זה כמו שמכונית לא החליפה את הצורך בנהגים - היא רק אפשרה להם להגיע רחוק יותר, מהר יותר.\n\nמה שקורה בפועל:\n- משימות טכניות = AI\n- החלטות יצירתיות = המעצב\n- הבנת הלקוח = המעצב\n- הטמעת המותג = המעצב\n\n## טיפים לעבודה עם AI בעיצוב\n\n1. **תמיד עדכנו את הכלים** - שיפורים קורים כל שבוע\n2. **למדו לכתוב פרומפטים טובים** - זו מיומנות בפני עצמה\n3. **אל תסתמכו רק על AI** - תמיד תוסיפו נגיעה אישית\n4. **שמרו ארכיון** - פרומפטים שעבדו טוב, תשמרו\n5. **התנסו** - כל יום יש כלי חדש, תנסו הכל\n\n## סיכום\n\nהכלים האלה חוסכים לי בממוצע **15-20 שעות בשבוע**. במקום לבזבז זמן על משימות טכניות, אני מתמקד בקריאייטיב ובשיחות עם לקוחות.\n\nהשקעה של כ-$300 בכלים האלה מחזירה את עצמה פי 10 בזמן שנחסך ובפרויקטים נוספים שאני יכול לקחת.\n\n**איזה כלי אתם הכי רוצים לנסות ראשון?** כתבו לי ואני אעזור לכם להתחיל.",
+    "content_en": "[English translation would go here - full content similar to Hebrew version]",
+    "tags": [
+      "design",
+      "ai-tools",
+      "graphics",
+      "productivity"
+    ]
+  },
+  {
+    "id": "art003",
+    "title_he": "מדוע ה-CRM שלכם לא עובד? 4 טעויות נפוצות ואיך AI יכול לעזור",
+    "title_en": "Why Your CRM Isn't Working? 4 Common Mistakes and How AI Can Help",
+    "slug": "crm-mistakes-ai-solutions",
+    "category": "business",
+    "author": "Gal Sasson",
+    "date": "2024-11-20",
+    "readTime": 10,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
+    "excerpt_he": "למה המכירות לא עולות למרות שהשקעתם ב-CRM? ניתוח של 4 הטעויות הכי נפוצות ופתרונות מעשיים",
+    "excerpt_en": "Why aren't sales increasing despite investing in CRM? Analysis of 4 most common mistakes and practical solutions",
+    "content_he": "[Full Hebrew content about CRM mistakes and AI solutions]",
+    "content_en": "[Full English content]",
+    "tags": [
+      "crm",
+      "sales",
+      "ai",
+      "business"
+    ]
+  },
+  {
+    "id": "art004",
+    "title_he": "n8n vs Make vs Zapier: מדריך השוואה מקיף לבחירת פלטפורמת האוטומציה הנכונה",
+    "title_en": "n8n vs Make vs Zapier: Comprehensive Comparison Guide for Choosing the Right Automation Platform",
+    "slug": "automation-platforms-comparison",
+    "category": "tutorials",
+    "author": "Gal Sasson",
+    "date": "2024-11-15",
+    "readTime": 12,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200",
+    "excerpt_he": "השוואה מעמיקה בין 3 פלטפורמות האוטומציה המובילות - מחיר, יכולות, וממתי כדאי לעבור בין הן",
+    "excerpt_en": "In-depth comparison of 3 leading automation platforms - price, capabilities, and when to switch between them",
+    "tags": [
+      "automation",
+      "comparison",
+      "n8n",
+      "make",
+      "zapier"
+    ]
+  },
+  {
+    "id": "art005",
+    "title_he": "איך לבנות צ'אטבוט AI שבאמת משרת לקוחות (ולא רק מעצבן אותם)",
+    "title_en": "How to Build an AI Chatbot That Actually Serves Customers (Not Just Annoys Them)",
+    "slug": "building-effective-ai-chatbot",
+    "category": "ai-implementation",
+    "author": "Gal Sasson",
+    "date": "2024-11-10",
+    "readTime": 9,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=1200",
+    "excerpt_he": "המדריך המלא לבניית צ'אטבוט שלקוחות באמת רוצים לדבר איתו - מהאסטרטגיה ועד הטכנולוגיה",
+    "excerpt_en": "Complete guide to building a chatbot customers actually want to talk to - from strategy to technology",
+    "tags": [
+      "chatbot",
+      "ai",
+      "customer-service",
+      "tutorial"
+    ]
+  },
+  {
+    "id": "art006",
+    "title_he": "מקרה בוחן: איך חסכנו 40 שעות עבודה בשבוע באוטומציה של תהליך גיוס",
+    "title_en": "Case Study: How We Saved 40 Work Hours Per Week Automating Recruitment Process",
+    "slug": "recruitment-automation-case-study",
+    "category": "case-studies",
+    "author": "Gal Sasson",
+    "date": "2024-11-05",
+    "readTime": 7,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200",
+    "excerpt_he": "סיפור אמיתי של חברת הייטק שהצליחה לאוטמט את תהליך הגיוס מקצה לקצה - הטכנולוגיות, האתגרים, והתוצאות",
+    "excerpt_en": "True story of a high-tech company that successfully automated recruitment end-to-end - technologies, challenges, and results",
+    "tags": [
+      "case-study",
+      "automation",
+      "hr",
+      "recruitment"
+    ]
+  },
+  {
+    "id": "art007",
+    "title_he": "7 אתרים חינמיים ליצירת תוכן בעזרת AI שלא הכרתם",
+    "title_en": "7 Free AI Content Creation Websites You Didn't Know About",
+    "slug": "free-ai-content-tools",
+    "category": "tools-review",
+    "author": "Gal Sasson",
+    "date": "2024-10-30",
+    "readTime": 6,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1200",
+    "excerpt_he": "גלו כלי AI חינמיים ופחות מוכרים ליצירת טקסט, תמונות, וידאו ועוד - אלטרנטיבות איכותיות לכלים המסחריים",
+    "excerpt_en": "Discover free and lesser-known AI tools for creating text, images, video and more - quality alternatives to commercial tools",
+    "tags": [
+      "free-tools",
+      "ai",
+      "content-creation",
+      "review"
+    ]
+  },
+  {
+    "id": "art008",
+    "title_he": "האם Google Workspace או Microsoft 365? מדריך לבחירה נכונה לעסק שלכם",
+    "title_en": "Google Workspace or Microsoft 365? Guide to Choosing Right for Your Business",
+    "slug": "google-workspace-vs-microsoft-365",
+    "category": "business",
+    "author": "Gal Sasson",
+    "date": "2024-10-25",
+    "readTime": 8,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200",
+    "excerpt_he": "השוואה מעמיקה בין שתי הפלטפורמות המובילות לעסקים - לאיזה עסקים מתאימה כל אחת ואיך לעבור ביניהן",
+    "excerpt_en": "In-depth comparison between two leading business platforms - which businesses each suits and how to migrate between them",
+    "tags": [
+      "google-workspace",
+      "microsoft-365",
+      "business-tools",
+      "productivity"
+    ]
+  },
+  {
+    "id": "art009",
+    "title_he": "סיפור הצלחה: איך בעל עסק קטן הגדיל מכירות פי 3 בעזרת אוטומציה פשוטה",
+    "title_en": "Success Story: How a Small Business Owner Tripled Sales with Simple Automation",
+    "slug": "small-business-automation-success",
+    "category": "case-studies",
+    "author": "Gal Sasson",
+    "date": "2024-10-20",
+    "readTime": 8,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200",
+    "excerpt_he": "הסיפור של דני, בעל חנות אונליין קטנה, שהשקיע 2,000 ₪ באוטומציה והגדיל מכירות מ-50,000 ₪ ל-150,000 ₪ לחודש",
+    "excerpt_en": "The story of Danny, small online store owner, who invested ₪2,000 in automation and increased sales from ₪50,000 to ₪150,000 monthly",
+    "tags": [
+      "success-story",
+      "small-business",
+      "automation",
+      "e-commerce"
+    ]
+  },
+  {
+    "id": "art010",
+    "title_he": "מדריך מלא לבניית נוכחות דיגיטלית מנצחת ב-2024",
+    "title_en": "Complete Guide to Building a Winning Digital Presence in 2024",
+    "slug": "digital-presence-guide-2024",
+    "category": "digital-marketing",
+    "author": "Gal Sasson",
+    "date": "2024-10-15",
+    "readTime": 11,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200",
+    "excerpt_he": "מהאתר דרך רשתות חברתיות ועד אוטומציית שיווק - המדריך השלם לבניית נוכחות דיגיטלית שמייצרת לידים",
+    "excerpt_en": "From website through social media to marketing automation - complete guide to building digital presence that generates leads",
+    "tags": [
+      "digital-marketing",
+      "branding",
+      "social-media",
+      "lead-generation"
+    ]
+  },
+  {
+    "id": "art011",
+    "title_he": "10 שגיאות נפוצות באוטומציה ואיך להימנע מהן",
+    "title_en": "10 Common Automation Mistakes and How to Avoid Them",
+    "slug": "common-automation-mistakes",
+    "category": "tutorials",
+    "author": "Gal Sasson",
+    "date": "2024-10-10",
+    "readTime": 9,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=1200",
+    "excerpt_he": "למדתי את השגיאות האלה בדרך הקשה. עכשיו אתם יכולים להימנע מהן - רשימת הטעויות הכי יקרות בעולם האוטומציה",
+    "excerpt_en": "I learned these mistakes the hard way. Now you can avoid them - list of most expensive mistakes in automation world",
+    "tags": [
+      "automation",
+      "mistakes",
+      "best-practices",
+      "tutorial"
+    ]
+  },
+  {
+    "id": "art012",
+    "title_he": "מה זה Prompt Engineering ולמה זה חשוב לעסק שלכם?",
+    "title_en": "What is Prompt Engineering and Why Does It Matter for Your Business?",
+    "slug": "prompt-engineering-explained",
+    "category": "ai-fundamentals",
+    "author": "Gal Sasson",
+    "date": "2024-10-05",
+    "readTime": 7,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200",
+    "excerpt_he": "המדריך המלא להבנת מיומנות ה-Prompt Engineering - איך לדבר עם AI כדי לקבל תוצאות מדויקות בפעם הראשונה",
+    "excerpt_en": "Complete guide to understanding Prompt Engineering skill - how to talk to AI to get precise results first time",
+    "tags": [
+      "ai",
+      "prompt-engineering",
+      "chatgpt",
+      "tutorial"
+    ]
+  }
+]

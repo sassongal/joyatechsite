@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import  AITool  from '@/entities/AITool.json';
+import  AITool  from '@/constants/AITool.json';
 import AnimatedElement from '../components/ui/AnimatedElement';
 import { Search, X, ExternalLink, Palette, Type, Gauge, Mic, Video, BarChart, Image, Code } from 'lucide-react';
 

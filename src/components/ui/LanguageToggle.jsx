@@ -14,11 +14,7 @@ export default function LanguageToggle({ currentLanguage }) {
     let pageName = '';
     
     // Determine which page we're on
-    if (currentPath.includes('/blog/')) {
-      // We would need to look up the corresponding slug in the other language
-      // For simplicity, we'll just redirect to the blog page
-      pageName = 'Blog';
-    } else if (currentPath.includes('/services/')) {
+    if (currentPath.includes('/services/')) {
       // Similar to blog post, we'd need to look up the corresponding service slug
       pageName = 'Services';
     } else if (currentPath.includes('/contact')) {
@@ -27,10 +23,12 @@ export default function LanguageToggle({ currentLanguage }) {
       pageName = 'About';
     } else if (currentPath.includes('/services')) {
       pageName = 'Services';
-    } else if (currentPath.includes('/blog')) {
-      pageName = 'Blog';
-    } else if (currentPath.includes('/blogpost')) {
-      pageName = 'BlogPost';
+    } else if (currentPath.includes('/tools')) {
+      pageName = 'Tools';
+    } else if (currentPath.includes('/courses')) {
+      pageName = 'Courses';
+    } else if (currentPath.includes('/magazine')) {
+      pageName = 'Magazine';
     } else {
       // Default to home page
       pageName = 'Home';
