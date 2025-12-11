@@ -1,0 +1,68 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Helper function to check file size (5MB max)
+    function isValidSize() {
+      return request.resource.size < 5 * 1024 * 1024;
+    }
+    
+    // Helper function to check if file is an image
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+    
+    // Articles images
+    match /articles/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSize() && isImage();
+    }
+    
+    // Portfolio images
+    match /portfolio/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSize() && isImage();
+    }
+    
+    // Testimonials images
+    match /testimonials/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSize() && isImage();
+    }
+    
+    // Carousel images
+    match /carousels/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSize() && isImage();
+    }
+    
+    // General uploads
+    match /uploads/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSize() && isImage();
+    }
+    
+    // Logos
+    match /logos/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSize() && isImage();
+    }
+
+    // Backups - accessible only by Cloud Functions (Admin SDK)
+    // Functions use Admin SDK which bypasses security rules
+    match /backups/{fileName} {
+      allow read: if isAdmin();
+      allow write: if false;  // Only Cloud Functions can write via Admin SDK
+    }
+
+    // Deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

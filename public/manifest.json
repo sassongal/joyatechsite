@@ -1,0 +1,33 @@
+{
+  "name": "JoyaTech - Digital Solutions & GEO/AEO Experts",
+  "short_name": "JoyaTech",
+  "description": "Leading GEO/AEO optimization, AI automation, and digital solutions. Future-proof your online visibility with expert LLM optimization.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2EFEA",
+  "theme_color": "#FC7753",
+  "orientation": "portrait-primary",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "marketing"],
+  "screenshots": []
+}

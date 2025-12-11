@@ -4,6 +4,7 @@ import SEO from '../components/SEO';
 import AnimatedElement from '../components/ui/AnimatedElement';
 import { createPageUrl } from '@/utils';
 import { Sparkles, BarChart3, ShieldCheck, ArrowRight, CheckCircle } from 'lucide-react';
+import LeadMagnet from '../components/home/LeadMagnet';
 
 export default function Geo({ language = 'he' }) {
   const rtl = language === 'he';
@@ -143,6 +144,73 @@ export default function Geo({ language = 'he' }) {
 
         <section className="py-14 bg-neutral-50">
           <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                  {rtl ? 'GEO/AEO – להתבלט בתשובות ה-AI' : 'GEO/AEO – Stand out in AI answers'}
+                </h2>
+                <p className="text-neutral-700 mb-4">
+                  {rtl
+                    ? 'אנחנו מותאמים למודלי שפה ול-AI Overviews: מחקר כוונת LLM, סכמה מותאמת GEO, ושכתוב תוכן שמועדף על מודלים כדי שתופיעו ראשונים.'
+                    : 'We optimize for language models and AI overviews: LLM intent research, GEO-ready schema, and LLM-style rewrites so you surface first.'}
+                </p>
+                <ul className="space-y-2 text-neutral-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-600">•</span>
+                    {rtl ? 'מדידת חשיפה ב-AI Overviews ו-LLM answers' : 'Tracking AI overview and LLM answer visibility'}
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-600">•</span>
+                    {rtl ? 'תיוג/סכמה ייעודיים ל-GEO/AEO' : 'GEO/AEO-focused schema and tagging'}
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-600">•</span>
+                    {rtl ? 'שכתוב תוכן בשפת המודל' : 'LLM-friendly content rewrites'}
+                  </li>
+                </ul>
+                <div className="mt-6 flex gap-3 flex-wrap">
+                  <Link
+                    to={createPageUrl('Services') + `?service=geo&lang=${language}`}
+                    className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-xl font-semibold"
+                  >
+                    {rtl ? 'בואו נדבר GEO/AEO' : 'Let’s talk GEO/AEO'}
+                  </Link>
+                  <Link
+                    to={createPageUrl('Contact') + `?service=geo&lang=${language}`}
+                    className="inline-flex items-center gap-2 px-4 py-3 border border-neutral-200 text-neutral-800 rounded-xl hover:border-primary-300"
+                  >
+                    {rtl ? 'בדיקת חשיפה ללא עלות' : 'Free visibility check'}
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-neutral-900 mb-2">
+                  {rtl ? 'איתותי מגמה (דיווחים גלובליים)' : 'Trend signals (global reports)'}
+                </h3>
+                <ul className="space-y-3 text-neutral-700">
+                  <li>
+                    {rtl
+                      ? 'דיווחי שוק (SISTRIX 2024) מצביעים על חשיפה גבוהה ל-AI Overviews בחיפושים בארה\"ב.'
+                      : 'Market reports (SISTRIX 2024) indicate high AI Overview exposure in US searches.'}
+                  </li>
+                  <li>
+                    {rtl
+                      ? 'נרשמת עלייה משמעותית בתשובות AI בדסקטופ לעומת מובייל (נתוני שוק עדכניים).'
+                      : 'Notable increase in AI answers on desktop versus mobile (recent market data).'}
+                  </li>
+                  <li>
+                    {rtl
+                      ? 'מודלי שפה נותנים עדיפות לתוכן עם סכמה ברורה ותיוג הקשרי – זה מה שאנחנו מיישמים.'
+                      : 'LLMs prioritize clearly tagged, schema-rich content – that’s what we implement.'}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 bg-neutral-50">
+          <div className="container mx-auto px-4">
             <AnimatedElement animation="fadeInUp" className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3">
                 {rtl ? 'התהליך שלנו ל-GEO/AEO' : 'Our GEO/AEO process'}
@@ -216,6 +284,8 @@ export default function Geo({ language = 'he' }) {
             </div>
           </div>
         </section>
+
+        <LeadMagnet language={language} />
       </main>
     </>
   );

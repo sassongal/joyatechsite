@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -14,32 +14,30 @@ const CardSwap = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const intervalRef = useRef(null);
 
-  const nextCard = () => {
+  const nextCard = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % cards.length);
     setTimeout(() => setIsAnimating(false), 600);
-  };
+  }, [isAnimating, cards.length]);
 
-  const prevCard = () => {
+  const prevCard = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
     setTimeout(() => setIsAnimating(false), 600);
-  };
+  }, [isAnimating, cards.length]);
 
-  const goToCard = (index) => {
+  const goToCard = useCallback((index) => {
     if (isAnimating || index === currentIndex) return;
     setIsAnimating(true);
     setCurrentIndex(index);
     setTimeout(() => setIsAnimating(false), 600);
-  };
+  }, [isAnimating, currentIndex]);
 
   useEffect(() => {
     if (autoPlay && cards.length > 1) {
-      intervalRef.current = setInterval(() => {
-        nextCard();
-      }, autoPlayInterval);
+      intervalRef.current = setInterval(nextCard, autoPlayInterval);
     }
 
     return () => {
@@ -47,21 +45,19 @@ const CardSwap = ({
         clearInterval(intervalRef.current);
       }
     };
-  }, [autoPlay, autoPlayInterval, cards.length]);
+  }, [autoPlay, autoPlayInterval, cards.length, nextCard]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (autoPlay && cards.length > 1) {
-      intervalRef.current = setInterval(() => {
-        nextCard();
-      }, autoPlayInterval);
+      intervalRef.current = setInterval(nextCard, autoPlayInterval);
     }
-  };
+  }, [autoPlay, cards.length, nextCard, autoPlayInterval]);
 
   return (
     <div
@@ -201,4 +197,4 @@ const CardSwap = ({
   );
 };
 
-export default CardSwap;
+export default memo(CardSwap);

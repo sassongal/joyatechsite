@@ -1,5 +1,4 @@
 const {onRequest} = require("firebase-functions/v2/https");
-const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const {google} = require("googleapis");
 const nodemailer = require("nodemailer");
@@ -12,14 +11,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-const cfg = functions.config ? functions.config() : {};
-const sheetsCfg = cfg.sheets || {};
-const mailCfg = cfg.mail || {};
-const leadsCfg = cfg.leads || {};
-const rateCfg = cfg.ratelimit || {};
-
-const sheetsRange = sheetsCfg.range || process.env.SHEETS_RANGE || "Leads!A1";
-const leadsCollection = leadsCfg.collection || process.env.LEADS_COLLECTION || "contactMessages";
+const sheetsRange = process.env.SHEETS_RANGE || "Leads!A1";
+const leadsCollection = process.env.LEADS_COLLECTION || "contactMessages";
 
 function withCors(res) {
   return res.set(corsHeaders);
@@ -38,9 +31,9 @@ function getClientIp(req) {
 
 function getRateLimitConfig() {
   return {
-    windowMs: Number(rateCfg.window_ms || process.env.RATE_LIMIT_WINDOW_MS || 60_000),
-    max: Number(rateCfg.max || process.env.RATE_LIMIT_MAX || 5),
-    collection: rateCfg.collection || process.env.RATE_LIMIT_COLLECTION || "rateLimits",
+    windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS || 60_000),
+    max: Number(process.env.RATE_LIMIT_MAX || 5),
+    collection: process.env.RATE_LIMIT_COLLECTION || "rateLimits",
   };
 }
 
@@ -114,9 +107,9 @@ async function persistToFirestore(payload) {
 }
 
 function getSheetsCredentials() {
-  const spreadsheetId = sheetsCfg.id || process.env.SHEETS_ID;
-  const clientEmail = sheetsCfg.client_email || process.env.SHEETS_CLIENT_EMAIL;
-  const privateKeyRaw = sheetsCfg.private_key || process.env.SHEETS_PRIVATE_KEY;
+  const spreadsheetId = process.env.SHEETS_ID;
+  const clientEmail = process.env.SHEETS_CLIENT_EMAIL;
+  const privateKeyRaw = process.env.SHEETS_PRIVATE_KEY;
   const privateKey = privateKeyRaw ? privateKeyRaw.replace(/\\n/g, "\n") : undefined;
   return {spreadsheetId, clientEmail, privateKey};
 }
@@ -173,12 +166,12 @@ function buildEmailText(payload) {
 }
 
 async function sendEmail(payload) {
-  const to = mailCfg.to || process.env.MAIL_TO;
-  const user = mailCfg.user || process.env.MAIL_USER;
-  const pass = mailCfg.pass || process.env.MAIL_PASS;
-  const host = mailCfg.host || process.env.MAIL_HOST;
-  const port = Number(mailCfg.port || process.env.MAIL_PORT || 587);
-  const from = mailCfg.from || process.env.MAIL_FROM || user;
+  const to = process.env.MAIL_TO;
+  const user = process.env.MAIL_USER;
+  const pass = process.env.MAIL_PASS;
+  const host = process.env.MAIL_HOST;
+  const port = Number(process.env.MAIL_PORT || 587);
+  const from = process.env.MAIL_FROM || user;
 
   if (!to || !user || !pass || !host) {
     console.warn("Mail config missing; skipping email");

@@ -1,12 +1,85 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Block all client reads/writes to contactMessages (writes go through serverless function)
-    match /contactMessages/{document} {
+    
+    // Helper function to check if user is authenticated admin
+    function isAdmin() {
+      return request.auth != null && 
+             (request.auth.token.admin == true || 
+              exists(/databases/$(database)/documents/admins/$(request.auth.uid)));
+    }
+    
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // ===== PUBLIC READABLE COLLECTIONS =====
+    
+    // Articles - public read, admin write
+    match /articles/{articleId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Tools - public read, admin write
+    match /tools/{toolId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Testimonials - public read, admin write
+    match /testimonials/{testimonialId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Portfolio - public read, admin write
+    match /portfolio/{portfolioId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Carousels - public read, admin write
+    match /carousels/{carouselId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    
+    // Settings - public read, admin write
+    match /settings/{settingId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ===== ADMIN-ONLY COLLECTIONS =====
+    
+    // Activity logs - admin only
+    match /activityLogs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isAuthenticated(); // Allow any authenticated user to create logs
+      allow update, delete: if false; // Logs are immutable
+    }
+    
+    // Admins collection - admin only
+    match /admins/{userId} {
+      allow read: if isAuthenticated() && request.auth.uid == userId;
+      allow write: if false; // Only editable via Firebase Console or Admin SDK
+    }
+
+    // ===== PRIVATE COLLECTIONS =====
+    
+    // Contact messages - server only (Cloud Functions)
+    match /contactMessages/{messageId} {
+      allow read, write: if false;
+    }
+    
+    // Rate limits - server only
+    match /rateLimits/{limitId} {
       allow read, write: if false;
     }
 
-    // Default deny everything else (use server SDK/Rules per collection when needed)
+    // ===== DEFAULT DENY =====
     match /{document=**} {
       allow read, write: if false;
     }

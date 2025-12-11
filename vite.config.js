@@ -23,7 +23,8 @@ export default defineConfig(({ mode }) => ({
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['lucide-react', 'framer-motion'],
           utils: ['date-fns', 'dompurify', 'react-markdown'],
-          firebase: ['firebase/app', 'firebase/firestore']
+          firebase: ['firebase/app', 'firebase/firestore', 'firebase/auth', 'firebase/storage'],
+          admin: ['@tiptap/react', '@tiptap/starter-kit', '@dnd-kit/core', '@dnd-kit/sortable', 'recharts']
         }
       }
     }
