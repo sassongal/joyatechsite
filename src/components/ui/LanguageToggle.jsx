@@ -1,16 +1,17 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
 export default function LanguageToggle({ currentLanguage }) {
-  // Remove useRouter since we're not using react-router's hook system
-  // Instead we'll use window.location methods directly
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Get current pathname and convert to the other language
   const switchLanguage = () => {
     const newLang = currentLanguage === 'he' ? 'en' : 'he';
     
     // Extract the current page path
-    const currentPath = window.location.pathname;
+    const currentPath = location.pathname;
     let pageName = '';
     
     // Determine which page we're on
@@ -35,13 +36,13 @@ export default function LanguageToggle({ currentLanguage }) {
     }
     
     // Preserve any URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(location.search);
     
     // Set the language parameter
     urlParams.set('lang', newLang);
     
     // Navigate to the same page in the other language
-    window.location.href = createPageUrl(pageName) + `?${urlParams.toString()}`;
+    navigate(`${createPageUrl(pageName)}?${urlParams.toString()}`);
   };
 
   return (

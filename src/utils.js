@@ -7,10 +7,6 @@ export function createPageUrl(page) {
       return '/services';
     case 'About':
       return '/about';
-    case 'Blog':
-      return '/blog';
-    case 'BlogPost':
-      return '/blogpost';
     case 'Contact':
       return '/contact';
     case 'Magazine':
@@ -21,6 +17,8 @@ export function createPageUrl(page) {
       return '/tools';
     case 'Courses':
       return '/courses';
+    case 'Geo':
+      return '/geo';
     default:
       return '/';
   }

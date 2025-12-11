@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import AnimatedElement from '../components/ui/AnimatedElement';
-import { Search, Feather, Monitor, BarChart3, Database, PenTool, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
+import { Search, Feather, Monitor, BarChart3, Database, PenTool, ChevronRight, Sparkles } from 'lucide-react';
+import GEOHighlights from '../components/services/GEOHighlights';
 
 export default function Services({ language = 'he' }) {
   const rtl = language === 'he';
@@ -15,12 +17,18 @@ export default function Services({ language = 'he' }) {
     subtitle: rtl 
       ? 'פתרונות דיגיטליים מקיפים להצלחת העסק שלך'
       : 'Comprehensive digital solutions for your business success',
+    geoCta: rtl ? 'דברו איתנו על GEO/AEO' : 'Talk to us about GEO/AEO',
+    geoCtaSub: rtl ? 'בדיקת חשיפה ל-AI Overviews ו-LLM answers' : 'Check your AI overview and LLM answers presence',
     loading: rtl ? 'טוען שירותים...' : 'Loading services...',
     allServices: rtl ? 'כל השירותים' : 'All Services',
     serviceCategories: {
       'seo': {
         title: rtl ? 'קידום אתרים SEO' : 'SEO Services',
         icon: <Search className="w-6 h-6" />
+      },
+      'geo': {
+        title: rtl ? 'GEO/AIO - קידום מודלי שפה' : 'GEO/AIO - LLM Optimization',
+        icon: <Sparkles className="w-6 h-6" />
       },
       'content': {
         title: rtl ? 'יצירת תוכן וקופירייטינג' : 'Content & Copywriting',
@@ -45,23 +53,6 @@ export default function Services({ language = 'he' }) {
     }
   };
 
-  useEffect(() => {
-    document.title = language === 'he' 
-      ? 'השירותים שלנו | Joya-Tech'
-      : 'Our Services | Joya-Tech';
-      
-    // Set meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
-      document.head.appendChild(metaDescription);
-    }
-    
-    metaDescription.content = language === 'he'
-      ? 'גלו את מגוון השירותים שלנו: קידום אתרים, יצירת תוכן, בניית אתרים, סדנאות AI, שירותי CRM ועיצוב גרפי.'
-      : 'Discover our range of services: SEO, content creation, website development, AI workshops, CRM services, and graphic design.';
-  }, [language]);
 
   // Load services from fallback data
   useEffect(() => {
@@ -110,6 +101,29 @@ export default function Services({ language = 'he' }) {
         'SEO-focused content creation',
         'Monthly monitoring and reporting',
         'Mobile-optimized promotion'
+      ]
+    },
+    {
+      category: 'geo',
+      title_he: 'GEO/AIO - קידום מודלי שפה',
+      title_en: 'GEO/AIO - LLM Search Optimization',
+      description_he: 'אופטימיזציה למודלי שפה (GEO/AIO): בניית תוכן ומבנה שיעלו גבוה בתשובות AI וב-SERP המשולב. מחקר כוונות LLM, התאמת סכמות, ומדידת חשיפה ב-AI Overviews.',
+      description_en: 'GEO/AIO optimization for language models: structure and content tuned to rank in AI answers and blended SERP. LLM intent research, schema alignment, and AI overview visibility tracking.',
+      features_he: [
+        'מחקר כוונת משתמש בשאילתות מודלי שפה',
+        'תיוג/סכמה ייעודיים ל-GEO/AIO',
+        'שכתוב תוכן עם הוראות למודלי שפה',
+        'מעקב חשיפה ב-AI Overviews ו-LLM answers',
+        'התאמת תוכן לקונטקסט רב-לשוני',
+        'הטמעת מדדי GEO בדשבורד'
+      ],
+      features_en: [
+        'LLM intent research for AI queries',
+        'Schema/tagging tailored for GEO/AIO',
+        'Content rewrites with LLM prompts',
+        'AI Overviews & LLM answers visibility tracking',
+        'Multilingual context alignment',
+        'GEO metrics embedded in dashboards'
       ]
     },
     {
@@ -243,13 +257,127 @@ export default function Services({ language = 'he' }) {
 
   const activeServiceDetails = getActiveServiceDetails();
 
+  const geoServiceLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: rtl ? 'GEO/AIO - קידום מודלי שפה' : 'GEO/AIO - LLM Search Optimization',
+    serviceType: 'GEO/AIO',
+    provider: {
+      '@type': 'Organization',
+      name: 'Joya-Tech Digital Solutions',
+      url: 'https://joyatech.com',
+      areaServed: 'IL'
+    },
+    description: rtl
+      ? 'אופטימיזציה למודלי שפה ול-AI Overviews: מחקר כוונת LLM, סכמה מותאמת GEO, ושכתוב תוכן עם הנחיות למודלים.'
+      : 'Optimization for language models and AI overviews: LLM intent research, GEO-aligned schema, and LLM-style content rewrites.'
+  };
+
+  const geoFaqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: rtl ? 'מה זה GEO/AEO?' : 'What is GEO/AEO?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: rtl
+            ? 'GEO/AEO הוא אופטימיזציה לתוכן ומבנה כך שמודלי שפה ו-AI Overviews יבחרו בכם כמקור תשובה.'
+            : 'GEO/AEO optimizes your content and structure so LLMs and AI overviews choose you as the answer source.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: rtl ? 'איך מודדים הצלחה?' : 'How do you measure success?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: rtl
+            ? 'מעקב חשיפה ב-AI Overviews/LLM answers, CTR משוער, ושיפור דירוג ב-SERP המשולב.'
+            : 'Tracking AI overview/LLM answer visibility, estimated CTR, and uplift in blended SERP rankings.'
+        }
+      }
+    ]
+  };
+
+  const geoFaqUi = [
+    {
+      q: rtl ? 'מה זה GEO/AEO?' : 'What is GEO/AEO?',
+      a: rtl
+        ? 'אופטימיזציה לתוכן ומבנה כך שמודלי שפה ו-AI Overviews יבחרו בכם כמקור תשובה.'
+        : 'Optimization of content and structure so LLMs and AI overviews select you as the answer source.'
+    },
+    {
+      q: rtl ? 'איך מודדים הצלחה?' : 'How is success measured?',
+      a: rtl
+        ? 'חשיפה ב-AI Overviews/LLM answers, CTR משוער ושיפור דירוג ב-SERP משולב.'
+        : 'AI overview/LLM answer visibility, estimated CTR, and uplift in blended SERP.'
+    }
+  ];
+
   return (
-    <main dir={rtl ? 'rtl' : 'ltr'}>
-      <section className="pt-28 pb-16 bg-gradient-to-br from-blue-50 to-gray-50" aria-labelledby="services-page-title">
+    <>
+      <SEO 
+        page="services"
+        language={language}
+        type="service"
+        serviceType="Digital services including SEO, GEO/AIO, automation, design"
+        breadcrumbs={[
+          { name: rtl ? 'דף הבית' : 'Home', url: 'https://joyatech.com' },
+          { name: rtl ? 'שירותים' : 'Services', url: 'https://joyatech.com/services' },
+          { name: rtl ? 'GEO/AEO' : 'GEO/AEO', url: 'https://joyatech.com/services?service=geo' },
+        ]}
+        extraLd={[geoServiceLd, geoFaqLd]}
+      />
+      
+      <main dir={rtl ? 'rtl' : 'ltr'}>
+      <section className="pt-28 pb-16 bg-gradient-to-br from-primary-50 to-neutral-50" aria-labelledby="services-page-title">
         <div className="container mx-auto px-4">
           <AnimatedElement animation="fadeIn" className="text-center mb-16">
-            <h1 id="services-page-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{translations.title}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{translations.subtitle}</p>
+            <h1 id="services-page-title" className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">{translations.title}</h1>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">{translations.subtitle}</p>
+            <p className="mt-4 text-md text-neutral-600 max-w-3xl mx-auto">
+              {rtl
+                ? 'GEO/AIO: התאמת תוכן ומבנה למודלי שפה כדי לבלוט בתשובות AI וב-SERP המשולב. הצוות שלנו מבצע מחקר כוונות LLM, מיישם סכמות ותיוג חכם, ומנטר חשיפה ב-AI Overviews כדי לוודא שאתם שם כשהלקוחות שואלים את המודל.'
+                : 'GEO/AIO: tuning content and structure for language models so you surface in AI answers and blended SERP. We run LLM intent research, apply smart schemas, and track AI Overview visibility to keep you present when users ask the model.'}
+            </p>
+          </AnimatedElement>
+          
+          <GEOHighlights language={language} />
+
+          <AnimatedElement animation="fadeIn" className="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm mb-12">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-1">{rtl ? 'האם אתם מוכנים ל-GEO/AEO?' : 'Ready for GEO/AEO?'}</h3>
+                <p className="text-neutral-600">{translations.geoCtaSub}</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  to={createPageUrl('Contact') + `?service=geo&lang=${language}`}
+                  className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-xl font-semibold"
+                >
+                  {translations.geoCta}
+                </Link>
+                <Link
+                  to={createPageUrl('Magazine') + `?lang=${language}`}
+                  className="inline-flex items-center gap-2 px-4 py-3 border border-neutral-200 text-neutral-800 rounded-xl hover:border-primary-300"
+                >
+                  {rtl ? 'קראו עוד תוכן מקצועי' : 'Read more insights'}
+                </Link>
+              </div>
+            </div>
+          </AnimatedElement>
+
+          <AnimatedElement animation="fadeIn" className="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm mb-12">
+            <h3 className="text-xl font-bold text-neutral-900 mb-4">{rtl ? 'שאלות נפוצות על GEO/AEO' : 'GEO/AEO FAQs'}</h3>
+            <div className="space-y-3">
+              {geoFaqUi.map((item, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
+                  <p className="font-semibold text-neutral-900 mb-1">{item.q}</p>
+                  <p className="text-neutral-700 text-sm leading-relaxed">{item.a}</p>
+                </div>
+              ))}
+            </div>
           </AnimatedElement>
           
           {/* Service Categories */}
@@ -269,7 +397,7 @@ export default function Services({ language = 'he' }) {
                   <button
                     key={key}
                     className={`py-3 px-4 rounded-lg font-medium transition-colors ${
-                      activeService === key ? 'bg-primary-600 text-white' : 'hover:bg-gray-100'
+                      activeService === key ? 'bg-primary-600 text-white' : 'hover:bg-neutral-100'
                     }`}
                     onClick={() => setActiveService(key)}
                   >
@@ -284,7 +412,7 @@ export default function Services({ language = 'he' }) {
             {loading ? (
               <div className="flex justify-center items-center py-20">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-                <span className="ml-3 text-gray-600">{translations.loading}</span>
+                <span className="ml-3 text-neutral-600">{translations.loading}</span>
               </div>
             ) : activeServiceDetails ? (
               <AnimatedElement animation="fadeIn">
@@ -293,6 +421,8 @@ export default function Services({ language = 'he' }) {
                     <img
                       src={activeServiceDetails.image_url}
                       alt={rtl ? activeServiceDetails.title_he : activeServiceDetails.title_en}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-64 object-cover"
                     />
                   )}
@@ -302,16 +432,16 @@ export default function Services({ language = 'he' }) {
                       <div className="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600">
                         {translations.serviceCategories[activeService]?.icon}
                       </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                  <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
                     {rtl ? activeServiceDetails.title_he : activeServiceDetails.title_en}
                   </h2>
                     </div>
                     
-                    <p className="text-lg text-gray-600 mb-8">
+                    <p className="text-lg text-neutral-600 mb-8">
                       {rtl ? activeServiceDetails.description_he : activeServiceDetails.description_en}
                     </p>
                     
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    <h3 className="text-xl font-semibold text-neutral-900 mb-4">
                       {rtl ? 'מה כולל השירות?' : 'What does the service include?'}
                     </h3>
                     
@@ -321,7 +451,7 @@ export default function Services({ language = 'he' }) {
                         : activeServiceDetails.features_en)?.map((feature, index) => (
                         <div key={index} className="flex items-start">
                           <ChevronRight className={`w-5 h-5 text-primary-600 mt-1 ${rtl ? 'ml-2 transform rotate-180' : 'mr-2'}`} />
-                          <p className="text-gray-700">{feature}</p>
+                          <p className="text-neutral-700">{feature}</p>
                         </div>
                       ))}
                     </div>
@@ -351,6 +481,8 @@ export default function Services({ language = 'he' }) {
                         <img
                           src={service.image_url}
                           alt={rtl ? service.title_he : service.title_en}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-48 object-cover"
                         />
                       )}
@@ -358,10 +490,10 @@ export default function Services({ language = 'he' }) {
                         <div className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-primary-100 text-primary-600">
                           {translations.serviceCategories[service.category]?.icon}
                         </div>
-                        <h3 className="text-xl font-bold mb-3 text-gray-900">
+                        <h3 className="text-xl font-bold mb-3 text-neutral-900">
                           {rtl ? service.title_he : service.title_en}
                         </h3>
-                        <p className="text-gray-600 mb-4">
+                        <p className="text-neutral-600 mb-4">
                           {rtl ? service.description_he : service.description_en}
                         </p>
                         <span className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center">
@@ -378,5 +510,6 @@ export default function Services({ language = 'he' }) {
         </div>
       </section>
     </main>
+    </>
   );
 }

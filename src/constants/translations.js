@@ -7,6 +7,7 @@ export const TRANSLATIONS = {
     tools: 'כלים מומלצים',
     courses: 'קורסי AI',
     services: 'שירותים',
+    geo: 'GEO/AEO',
     about: 'אודות',
     contact: 'צור קשר',
 
@@ -39,9 +40,11 @@ export const TRANSLATIONS = {
     audio: 'אודיו ומוזיקה',
     video: 'וידאו ועריכה',
     development: 'פיתוח תוכנה',
+    geo: 'קידום GEO/AIO',
 
     // Footer specific
     seo: 'קידום אתרים SEO',
+    geo: 'קידום GEO/AIO (מודלי שפה)',
     ai_workshops: 'סדנאות AI לחברות',
     crm: 'שירותי CRM ואוטומציה',
     websites: 'בניית אתרים',
@@ -66,6 +69,7 @@ export const TRANSLATIONS = {
     tools: 'Recommended Tools',
     courses: 'AI Courses',
     services: 'Services',
+    geo: 'GEO/AEO',
     about: 'About',
     contact: 'Contact',
 
@@ -98,9 +102,11 @@ export const TRANSLATIONS = {
     audio: 'Audio & Music',
     video: 'Video & Editing',
     development: 'Software Development',
+    geo: 'GEO/AIO',
 
     // Footer specific
     seo: 'SEO Services',
+    geo: 'GEO/AIO (LLM Search)',
     ai_workshops: 'AI Workshops',
     crm: 'CRM & Automation',
     websites: 'Website Development',

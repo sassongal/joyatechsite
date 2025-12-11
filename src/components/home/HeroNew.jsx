@@ -59,11 +59,11 @@ export default function HeroNew({ language = 'he' }) {
 
   const translations = useMemo(() => ({
     title: rtl
-      ? 'טכנולוגיה שמתחברת לאנשים'
-      : 'Technology that connects with people',
+      ? 'מובילים ב-GEO/AEO ואוטומציה דיגיטלית'
+      : 'Leading GEO/AEO and digital automation',
     subtitle: rtl
-      ? 'הופכים תהליכים עסקיים מורכבים לפתרונות אוטומטיים חכמים. אוטומציה ופיתוח – כל מה שהעסק שלך צריך כדי לצמוח.'
-      : 'We turn complex business processes into smart automated solutions. Automation and development—everything your business needs to grow.',
+      ? 'קידום מודלי שפה, אוטומציה ופיתוח חכם – כדי שתופיעו ראשונים בתשובות AI ותצמחו מהר יותר.'
+      : 'GEO/AEO for language models, smart automation, and development so you surface first in AI answers and grow faster.',
     formTitle: rtl ? 'בואו נדבר' : 'Let\'s Talk',
     formSubtitle: rtl
       ? 'מלאו את הפרטים ונחזור אליכם תוך 24 שעות'
@@ -298,39 +298,44 @@ export default function HeroNew({ language = 'he' }) {
             <form onSubmit={handleSubmit} className="space-y-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
+                  <label htmlFor="hero-name" className="block text-sm font-medium text-neutral-700 mb-1">
                     {translations.name}
                   </label>
                   <input
                     type="text"
+                    id="hero-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    aria-required="true"
                     className="w-full px-4 py-2.5 bg-neutral-200/50 border border-neutral-400 rounded-lg text-neutral-900 placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-secondary-600/50 focus:border-secondary-600"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-1">
+                  <label htmlFor="hero-email" className="block text-sm font-medium text-neutral-700 mb-1">
                     {translations.email}
                   </label>
                   <input
                     type="email"
+                    id="hero-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    aria-required="true"
                     className="w-full px-4 py-2.5 bg-neutral-200/50 border border-neutral-400 rounded-lg text-neutral-900 placeholder:text-neutral-600 focus:outline-none focus:ring-2 focus:ring-secondary-600/50 focus:border-secondary-600"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
+                <label htmlFor="hero-phone" className="block text-sm font-medium text-neutral-700 mb-1">
                   {translations.phone}
                 </label>
                 <input
                   type="tel"
+                  id="hero-phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
@@ -339,11 +344,12 @@ export default function HeroNew({ language = 'he' }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
+                <label htmlFor="hero-company" className="block text-sm font-medium text-neutral-700 mb-1">
                   {translations.company}
                 </label>
                 <input
                   type="text"
+                  id="hero-company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
@@ -352,10 +358,11 @@ export default function HeroNew({ language = 'he' }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
+                <label htmlFor="hero-service" className="block text-sm font-medium text-neutral-700 mb-1">
                   {translations.service}
                 </label>
                 <select
+                  id="hero-service"
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
@@ -371,10 +378,11 @@ export default function HeroNew({ language = 'he' }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">
+                <label htmlFor="hero-message" className="block text-sm font-medium text-neutral-700 mb-1">
                   {translations.message}
                 </label>
                 <textarea
+                  id="hero-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -387,7 +395,7 @@ export default function HeroNew({ language = 'he' }) {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full py-4 bg-primary-500 disabled:bg-gray-500 text-neutral-900 font-bold rounded-lg shadow-lg shadow-primary-500/30 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-primary-500 disabled:bg-neutral-500 text-neutral-900 font-bold rounded-lg shadow-lg shadow-primary-500/30 disabled:cursor-not-allowed"
               >
                 {status === 'sending' ? translations.sending :
                  status === 'sent' ? translations.sent :

@@ -2,9 +2,41 @@
 <html lang="he">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <!-- Favicon - TODO: Add these files to public/ folder:
+         - favicon.ico (32x32)
+         - favicon-32x32.png
+         - favicon-16x16.png  
+         - apple-touch-icon.png (180x180)
+         - favicon-192x192.png (for manifest)
+         - favicon-512x512.png (for manifest)
+    -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JoyaTech - פתרונות דיגיטליים</title>
+    <meta name="theme-color" content="#FC7753" />
+    
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts - Rubik for headings, Alef for Hebrew body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Alef:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <!-- TODO: Replace G-XXXXXXXXXX with your actual Google Analytics ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <title>Joya-Tech - פתרונות דיגיטליים</title>
   </head>
   <body>
     <div id="root"></div>

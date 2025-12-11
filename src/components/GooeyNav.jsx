@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './GooeyNav.css';
 
 const GooeyNav = ({
@@ -12,10 +13,12 @@ const GooeyNav = ({
   initialActiveIndex = 0
 }) => {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Determine active index based on current URL
   const getActiveIndexFromUrl = () => {
-    const currentPath = window.location.pathname;
+    const currentPath = location.pathname;
     return items.findIndex(item => {
       try {
         const itemUrl = new URL(item.href, window.location.origin);
@@ -31,23 +34,11 @@ const GooeyNav = ({
 
   // Update active index when URL changes
   useEffect(() => {
-    const handleLocationChange = () => {
-      const newActiveIndex = getActiveIndexFromUrl();
-      if (newActiveIndex >= 0) {
-        setActiveIndex(newActiveIndex);
-      }
-    };
-
-    // Listen for navigation events
-    window.addEventListener('popstate', handleLocationChange);
-
-    // Also check on mount
-    handleLocationChange();
-
-    return () => {
-      window.removeEventListener('popstate', handleLocationChange);
-    };
-  }, [items]);
+    const newActiveIndex = getActiveIndexFromUrl();
+    if (newActiveIndex >= 0) {
+      setActiveIndex(newActiveIndex);
+    }
+  }, [items, location.pathname]);
 
   const handleItemClick = (index, href) => {
     if (isAnimating) return;
@@ -59,7 +50,7 @@ const GooeyNav = ({
     setTimeout(() => {
       setIsAnimating(false);
       if (href) {
-        window.location.href = href;
+        navigate(href);
       }
     }, animationTime);
 

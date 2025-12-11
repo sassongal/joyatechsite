@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joyatech.com/sitemap.xml
+
+# Crawl delay (requests per second)
+Crawl-delay: 1
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /login/
+Disallow: /signin/
+
+# Allow all other pages
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+
+# Social media crawlers
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /

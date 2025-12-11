@@ -90,7 +90,7 @@ const ClientsLogosSlider = () => {
         </div>
 
         {/* Stats or additional info (optional) */}
-        <div className="text-center mt-8 text-sm text-gray-500">
+        <div className="text-center mt-8 text-sm text-neutral-500">
           מעל {clients.length / 2} לקוחות מרוצים ✨
         </div>
       </div>

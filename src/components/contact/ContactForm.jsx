@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import  ContactMessage  from '@/constants/ContactMessage.json';
 import { Mail, Phone, Send, CheckCircle } from 'lucide-react';
 import AnimatedElement from '../ui/AnimatedElement';
+import { submitContact } from '@/services/contact';
 
 export default function ContactForm({ language = 'he' }) {
   const rtl = language === 'he';
@@ -11,7 +11,8 @@ export default function ContactForm({ language = 'he' }) {
     phone: '',
     service_interest: '',
     message: '',
-    language
+    language,
+    botField: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,9 +48,8 @@ export default function ContactForm({ language = 'he' }) {
       'other': rtl ? 'אחר' : 'Other'
     },
     directContact: rtl ? 'או צרו קשר ישירות' : 'Or Contact Us Directly',
-    email_contact: 'Gal@joya-tech.net',
-    phone_contact: '+972546468676',
-    phone_contact_display: '054-646-8676'
+    email_contact: 'info@joyatech.com',
+    phone_contact: '+972 50-123-4567'
   };
 
   const handleChange = (e) => {
@@ -85,13 +85,17 @@ export default function ContactForm({ language = 'he' }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Honeypot for bots
+    if (formData.botField) {
+      return;
+    }
     
     if (!validateForm()) return;
     
     setIsSubmitting(true);
     
     try {
-      await ContactMessage.create(formData);
+      await submitContact({ ...formData, language });
       setIsSubmitted(true);
       setFormData({
         name: '',
@@ -99,7 +103,8 @@ export default function ContactForm({ language = 'he' }) {
         phone: '',
         service_interest: '',
         message: '',
-        language
+        language,
+        botField: ''
       });
     } catch (error) {
       console.error('Failed to submit form:', error);
@@ -110,83 +115,101 @@ export default function ContactForm({ language = 'he' }) {
   };
 
   return (
-    <section dir={rtl ? 'rtl' : 'ltr'} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30">
+    <section dir={rtl ? 'rtl' : 'ltr'} className="py-20 bg-gradient-to-br from-neutral-50 to-primary-50/30">
       <div className="container mx-auto px-4">
         <AnimatedElement animation="fadeIn" className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-heading">{translations.title}</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{translations.subtitle}</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4 font-heading">{translations.title}</h2>
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">{translations.subtitle}</p>
         </AnimatedElement>
         
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Form - Enhanced styling */}
             <div className="lg:col-span-2 bg-white shadow-xl rounded-2xl overflow-hidden">
-              <div className="h-2 bg-gradient-to-r from-blue-500 to-teal-500"></div>
+              <div className="h-2 bg-gradient-to-r from-primary-500 to-secondary-500"></div>
               <div className="p-8">
                 {isSubmitted ? (
                   <AnimatedElement animation="scale" className="flex flex-col items-center justify-center text-center h-full py-12">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mb-6 shadow-md">
+                    <div className="w-16 h-16 bg-gradient-to-br from-secondary-400 to-secondary-600 rounded-full flex items-center justify-center mb-6 shadow-md">
                       <CheckCircle className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 font-heading">{translations.thanks}</h3>
-                    <p className="text-gray-600 max-w-md">{translations.response}</p>
+                    <h3 className="text-2xl font-bold text-neutral-900 mb-4 font-heading">{translations.thanks}</h3>
+                    <p className="text-neutral-600 max-w-md">{translations.response}</p>
                   </AnimatedElement>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot */}
+                    <input
+                      type="text"
+                      name="botField"
+                      value={formData.botField}
+                      onChange={handleChange}
+                      className="hidden"
+                      aria-hidden="true"
+                      tabIndex="-1"
+                      autoComplete="off"
+                    />
+
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="contact-name" className="block text-sm font-medium text-neutral-700 mb-1">
                         {translations.name} *
                       </label>
                       <input
                         type="text"
-                        id="name"
+                        id="contact-name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border ${errors.name ? 'border-primary-300 bg-primary-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
+                        aria-required="true"
+                        aria-invalid={errors.name ? 'true' : 'false'}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
+                        className={`w-full px-4 py-3 border ${errors.name ? 'border-primary-300 bg-primary-50' : 'border-neutral-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
                       />
-                      {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+                      {errors.name && <p id="name-error" className="mt-1 text-sm text-primary-600">{errors.name}</p>}
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="contact-email" className="block text-sm font-medium text-neutral-700 mb-1">
                         {translations.email} *
                       </label>
                       <input
                         type="email"
-                        id="email"
+                        id="contact-email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border ${errors.email ? 'border-primary-300 bg-primary-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
+                        aria-required="true"
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        className={`w-full px-4 py-3 border ${errors.email ? 'border-primary-300 bg-primary-50' : 'border-neutral-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
                       />
-                      {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                      {errors.email && <p id="email-error" className="mt-1 text-sm text-primary-600">{errors.email}</p>}
                     </div>
                     
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="contact-phone" className="block text-sm font-medium text-neutral-700 mb-1">
                         {translations.phoneOptional}
                       </label>
                       <input
                         type="tel"
-                        id="phone"
+                        id="contact-phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm"
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm"
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="service_interest" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="contact-service" className="block text-sm font-medium text-neutral-700 mb-1">
                         {translations.service}
                       </label>
                       <select
-                        id="service_interest"
+                        id="contact-service"
                         name="service_interest"
                         value={formData.service_interest}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all appearance-none bg-white shadow-sm"
+                        className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all appearance-none bg-white shadow-sm"
                       >
                         {Object.entries(translations.serviceOptions).map(([value, label]) => (
                           <option key={value} value={value}>{label}</option>
@@ -195,24 +218,27 @@ export default function ContactForm({ language = 'he' }) {
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="contact-message" className="block text-sm font-medium text-neutral-700 mb-1">
                         {translations.message} *
                       </label>
                       <textarea
-                        id="message"
+                        id="contact-message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         rows="5"
-                        className={`w-full px-4 py-3 border ${errors.message ? 'border-primary-300 bg-primary-50' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
+                        aria-required="true"
+                        aria-invalid={errors.message ? 'true' : 'false'}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
+                        className={`w-full px-4 py-3 border ${errors.message ? 'border-primary-300 bg-primary-50' : 'border-neutral-300'} rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all shadow-sm`}
                       ></textarea>
-                      {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+                      {errors.message && <p id="message-error" className="mt-1 text-sm text-primary-600">{errors.message}</p>}
                     </div>
                     
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center disabled:opacity-70 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                      className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center disabled:opacity-70 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
                       {isSubmitting ? (
                         <>
@@ -235,7 +261,7 @@ export default function ContactForm({ language = 'he' }) {
             </div>
             
             {/* Contact Info - Enhanced styling */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
+            <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between">
               <div className="p-8">
                 <h3 className="text-xl font-bold mb-6 font-heading">{translations.directContact}</h3>
                 <div className="space-y-6">
@@ -257,7 +283,7 @@ export default function ContactForm({ language = 'he' }) {
                     <div>
                       <p className="text-sm text-neutral-200 mb-1">{translations.phone}</p>
                       <a href={`tel:${translations.phone_contact}`} className="text-lg font-medium hover:underline">
-                        {translations.phone_contact_display}
+                        {translations.phone_contact}
                       </a>
                     </div>
                   </div>
@@ -267,10 +293,11 @@ export default function ContactForm({ language = 'he' }) {
               <div className="mt-12">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27053.57085735127!2d34.75855609335937!3d32.08297999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4b9c395c56d5%3A0xe6f1a3c2b388de9!2sTel%20Aviv-Yafo%2C%20Israel!5e0!3m2!1sen!2sus!4v1644422835414!5m2!1sen!2sus"
-                  className="w-full h-48 rounded-b-2xl border-t border-blue-500/30"
+                  className="w-full h-48 rounded-b-2xl border-t border-primary-500/30"
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
+                  title={rtl ? 'מפת מיקום' : 'Location map'}
                 ></iframe>
               </div>
             </div>

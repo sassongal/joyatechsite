@@ -1,91 +1,129 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import HeroNew from '../components/home/HeroNew';
-import CardSwap from '../components/CardSwap';
-import ClientsLogosSlider from '../components/home/ClientsLogosSlider';
+import React, { Suspense, lazy } from 'react';
+import { Link } from 'react-router-dom';
 import { Bot, Layers, Sparkles, BookOpen } from 'lucide-react';
+import SEO from '../components/SEO';
+import HeroNew from '../components/home/HeroNew';
+import LeadMagnet from '../components/home/LeadMagnet';
+import CaseStudy from '../components/home/CaseStudy';
+import { createPageUrl } from '../utils';
+
+const CardSwap = lazy(() => import('../components/CardSwap'));
+const ClientsLogosSlider = lazy(() => import('../components/home/ClientsLogosSlider'));
 
 export default function Home({ language = 'he' }) {
   const rtl = language === 'he';
 
-  const pageTitle = rtl
-    ? 'Joya-Tech Digital Solutions - פתרונות דיגיטליים מתקדמים לעסקים'
-    : 'Joya-Tech Digital Solutions - Advanced Digital Solutions for Businesses';
-
-  const pageDescription = rtl
-    ? 'Joya-Tech מציעה פתרונות דיגיטליים מתקדמים לעסקים, כולל קידום אתרים, יצירת תוכן, בניית אתרים, שירותי CRM ועיצוב גרפי.'
-    : 'Joya-Tech offers advanced digital solutions for businesses, including SEO, content creation, website development, CRM services, and graphic design.';
-
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Organization',
-        name: 'Joya-Tech',
-        url: 'https://joyatech.com',
-        logo: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/030050_3.png',
-        email: 'Gal@joya-tech.net',
-        telephone: '+972-54-646-8676',
-        sameAs: [
-          'https://www.linkedin.com',
-          'https://www.instagram.com'
-        ]
-      },
-      {
-        '@type': 'WebSite',
-        url: 'https://joyatech.com',
-        name: 'Joya-Tech Digital Solutions',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://joyatech.com/search?q={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
-      },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: rtl ? 'דף הבית' : 'Home',
-            item: 'https://joyatech.com'
-          }
-        ]
-      }
-    ]
-  };
-
   return (
     <>
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/030050_3.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/030050_3.png" />
-        <link rel="canonical" href={window.location.href} />
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
+      <SEO page="home" language={language} type="website" />
 
       <main>
         <HeroNew language={language} />
+
+        {/* Proof / Social Evidence */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
+                <div className="text-3xl font-bold text-primary-600">60+</div>
+                <p className="text-neutral-600 text-sm">{rtl ? 'פרויקטי אוטומציה ודיגיטל' : 'Automation & digital projects'}</p>
+              </div>
+              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
+                <div className="text-3xl font-bold text-secondary-600">35%</div>
+                <p className="text-neutral-600 text-sm">{rtl ? 'חיסכון ממוצע בזמן תפעול' : 'Avg. operations time saved'}</p>
+              </div>
+              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
+                <div className="text-3xl font-bold text-accent-500">4.9/5</div>
+                <p className="text-neutral-600 text-sm">{rtl ? 'דירוג שביעות רצון לקוחות' : 'Client satisfaction score'}</p>
+              </div>
+              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
+                <div className="text-3xl font-bold text-neutral-900">24h</div>
+                <p className="text-neutral-600 text-sm">{rtl ? 'זמן תגובה להצעות מחיר' : 'Response time for proposals'}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* GEO/AEO Highlight */}
+        <section className="py-14 bg-neutral-50">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                  {rtl ? 'GEO/AEO – להתבלט בתשובות ה-AI' : 'GEO/AEO – Stand out in AI answers'}
+                </h2>
+                <p className="text-neutral-700 mb-4">
+                  {rtl
+                    ? 'אנחנו מותאמים למודלי שפה ול-AI Overviews: מחקר כוונת LLM, סכמה מותאמת GEO, ושכתוב תוכן שמועדף על מודלים כדי שתופיעו ראשונים.'
+                    : 'We optimize for language models and AI overviews: LLM intent research, GEO-ready schema, and LLM-style rewrites so you surface first.'}
+                </p>
+                <ul className="space-y-2 text-neutral-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-600">•</span>
+                    {rtl ? 'מדידת חשיפה ב-AI Overviews ו-LLM answers' : 'Tracking AI overview and LLM answer visibility'}
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-600">•</span>
+                    {rtl ? 'תיוג/סכמה ייעודיים ל-GEO/AEO' : 'GEO/AEO-focused schema and tagging'}
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-600">•</span>
+                    {rtl ? 'שכתוב תוכן בשפת המודל' : 'LLM-friendly content rewrites'}
+                  </li>
+                </ul>
+                <div className="mt-6 flex gap-3 flex-wrap">
+                  <Link
+                    to={createPageUrl('Services') + `?service=geo&lang=${language}`}
+                    className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-5 py-3 rounded-xl font-semibold"
+                  >
+                    {rtl ? 'בואו נדבר GEO/AEO' : 'Let’s talk GEO/AEO'}
+                  </Link>
+                  <Link
+                    to={createPageUrl('Contact') + `?service=geo&lang=${language}`}
+                    className="inline-flex items-center gap-2 px-4 py-3 border border-neutral-200 text-neutral-800 rounded-xl hover:border-primary-300"
+                  >
+                    {rtl ? 'בדיקת חשיפה ללא עלות' : 'Free visibility check'}
+                  </Link>
+                </div>
+              </div>
+              <div className="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-xl font-bold text-neutral-900 mb-2">
+                  {rtl ? 'איתותי מגמה (דיווחים גלובליים)' : 'Trend signals (global reports)'}
+                </h3>
+                <ul className="space-y-3 text-neutral-700">
+                  <li>
+                    {rtl
+                      ? 'דיווחי שוק (SISTRIX 2024) מצביעים על חשיפה גבוהה ל-AI Overviews בחיפושים בארה"ב.'
+                      : 'Market reports (SISTRIX 2024) indicate high AI Overview exposure in US searches.'}
+                  </li>
+                  <li>
+                    {rtl
+                      ? 'נרשמת עלייה משמעותית בתשובות AI בדסקטופ לעומת מובייל (נתוני שוק עדכניים).'
+                      : 'Notable increase in AI answers on desktop versus mobile (recent market data).'}
+                  </li>
+                  <li>
+                    {rtl
+                      ? 'מודלי שפה נותנים עדיפות לתוכן עם סכמה ברורה ותיוג הקשרי – זה מה שאנחנו מיישמים.'
+                      : 'LLMs prioritize clearly tagged, schema-rich content – that’s what we implement.'}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <LeadMagnet language={language} />
+
+        <CaseStudy language={language} />
 
         {/* Services Card Swap */}
         <section id="services" aria-labelledby="services-heading" className="py-20 bg-gradient-to-br from-neutral-50 via-primary-50/40 to-secondary-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 id="services-heading" className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              <h2 id="services-heading" className="text-3xl md:text-4xl font-bold mb-4 text-neutral-900">
                 {language === 'he' ? 'השירותים שלנו' : 'Our Services'}
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                 {language === 'he'
                   ? 'פתרונות דיגיטליים מתקדמים המותאמים במיוחד לצרכי העסק שלך'
                   : 'Advanced digital solutions tailored specifically to your business needs'
@@ -93,59 +131,73 @@ export default function Home({ language = 'he' }) {
               </p>
             </div>
 
-            <CardSwap
-              cards={[
-                {
-                  title: language === 'he' ? 'אוטומציה ו-CRM חכמים' : 'Business Automation & CRM',
-                  description: language === 'he'
-                    ? 'חיבור תהליכים, אוטומציה של לידים, אינטגרציות CRM, ובוטים שמפחיתים עומסים אנושיים.'
-                    : 'Process wiring, lead automation, CRM integrations, and bots that reduce manual load.',
-                  icon: <Bot className="w-12 h-12" aria-hidden="true" />,
-                  features: language === 'he'
-                    ? ['אוטומציה של תהליכי מכירה', 'שילוב מערכות CRM', 'בוטים חכמים לשירות לקוחות', 'דוחות ביצועים בזמן אמת']
-                    : ['Sales process automation', 'CRM system integration', 'Smart customer service bots', 'Real-time performance reports']
-                },
-                {
-                  title: language === 'he' ? 'עיצוב אתרים ומיתוג' : 'Web Design & Branding',
-                  description: language === 'he'
-                    ? 'אתרי זכוכיתיות כהים עם אנימציות וואו, UX ממוקד המרה ומיתוג שובה עין.'
-                    : 'Dark glassmorphism sites with wow motion, conversion-focused UX, and striking branding.',
-                  icon: <Layers className="w-12 h-12" aria-hidden="true" />,
-                  features: language === 'he'
-                    ? ['עיצוב UI/UX מתקדם', 'אנימציות וויזואליות', 'מיתוג מלא לעסק', 'פיתוח responsive']
-                    : ['Advanced UI/UX design', 'Visual animations', 'Complete business branding', 'Responsive development']
-                },
-                {
-                  title: language === 'he' ? 'סדנאות אוטומציה והדרכות' : 'Automation Workshops & Training',
-                  description: language === 'he'
-                    ? 'סשנים אישיים לעסקים ואנשים: כתיבה, אוטומציות, וחיבורים לכלי עבודה קיימים.'
-                    : 'Personalized sessions for teams and individuals: writing, automations, and tooling integrations.',
-                  icon: <Sparkles className="w-12 h-12" aria-hidden="true" />,
-                  features: language === 'he'
-                    ? ['הדרכות אישיות', 'כלי אוטומציה מתקדמים', 'שילוב מערכות קיימות', 'ליווי מקצועי']
-                    : ['Personal training', 'Advanced automation tools', 'Existing system integration', 'Professional guidance']
-                },
-                {
-                  title: language === 'he' ? 'קורסי בינה מלאכותית' : 'AI Courses & Training',
-                  description: language === 'he'
-                    ? 'הדרכות מקיפות בבינה מלאכותית - מהיסודות ועד ליישומים מתקדמים.'
-                    : 'Comprehensive AI training - from basics to advanced applications.',
-                  icon: <BookOpen className="w-12 h-12" aria-hidden="true" />,
-                  features: language === 'he'
-                    ? ['יסודות בינה מלאכותית', 'כלי AI מתקדמים', 'יישומים עסקיים', 'פרויקטים מעשיים']
-                    : ['AI fundamentals', 'Advanced AI tools', 'Business applications', 'Practical projects']
-                }
-              ]}
-              autoPlay
-              autoPlayInterval={5000}
-              showDots
-              showArrows
-              className="mb-20"
-            />
+            <Suspense fallback={<div className="text-center text-neutral-500 py-10">Loading services…</div>}>
+              <CardSwap
+                cards={[
+                  {
+                    title: language === 'he' ? 'אוטומציה ו-CRM חכמים' : 'Business Automation & CRM',
+                    description: language === 'he'
+                      ? 'חיבור תהליכים, אוטומציה של לידים, אינטגרציות CRM, ובוטים שמפחיתים עומסים אנושיים.'
+                      : 'Process wiring, lead automation, CRM integrations, and bots that reduce manual load.',
+                    icon: <Bot className="w-12 h-12" aria-hidden="true" />,
+                    features: language === 'he'
+                      ? ['אוטומציה של תהליכי מכירה', 'שילוב מערכות CRM', 'בוטים חכמים לשירות לקוחות', 'דוחות ביצועים בזמן אמת']
+                      : ['Sales process automation', 'CRM system integration', 'Smart customer service bots', 'Real-time performance reports']
+                  },
+                  {
+                    title: language === 'he' ? 'GEO/AIO - קידום מודלי שפה' : 'GEO/AIO - LLM Search Optimization',
+                    description: language === 'he'
+                      ? 'אופטימיזציה של תוכן ומבנה עבור מודלי שפה כדי להופיע ראשונים בתשובות AI ו-SERP משולבי מודלים.'
+                      : 'Optimize content and structure for language models to surface first in AI answers and blended SERP.',
+                    icon: <Sparkles className="w-12 h-12" aria-hidden="true" />,
+                    features: language === 'he'
+                      ? ['מחקר כוונת משתמש בשאילתות LLM', 'שכתוב ותיוג תוכן ל-GEO', 'מדידת חשיפה ב-AI Overviews', 'התאמה למנועי חיפוש AI ומודלי שפה']
+                      : ['LLM intent research', 'Content retagging for GEO', 'AI overview visibility tracking', 'Alignment to AI search and LLMs']
+                  },
+                  {
+                    title: language === 'he' ? 'עיצוב אתרים ומיתוג' : 'Web Design & Branding',
+                    description: language === 'he'
+                      ? 'אתרי זכוכיתיות כהים עם אנימציות וואו, UX ממוקד המרה ומיתוג שובה עין.'
+                      : 'Dark glassmorphism sites with wow motion, conversion-focused UX, and striking branding.',
+                    icon: <Layers className="w-12 h-12" aria-hidden="true" />,
+                    features: language === 'he'
+                      ? ['עיצוב UI/UX מתקדם', 'אנימציות וויזואליות', 'מיתוג מלא לעסק', 'פיתוח responsive']
+                      : ['Advanced UI/UX design', 'Visual animations', 'Complete business branding', 'Responsive development']
+                  },
+                  {
+                    title: language === 'he' ? 'סדנאות אוטומציה והדרכות' : 'Automation Workshops & Training',
+                    description: language === 'he'
+                      ? 'סשנים אישיים לעסקים ואנשים: כתיבה, אוטומציות, וחיבורים לכלי עבודה קיימים.'
+                      : 'Personalized sessions for teams and individuals: writing, automations, and tooling integrations.',
+                    icon: <Sparkles className="w-12 h-12" aria-hidden="true" />,
+                    features: language === 'he'
+                      ? ['הדרכות אישיות', 'כלי אוטומציה מתקדמים', 'שילוב מערכות קיימות', 'ליווי מקצועי']
+                      : ['Personal training', 'Advanced automation tools', 'Existing system integration', 'Professional guidance']
+                  },
+                  {
+                    title: language === 'he' ? 'קורסי בינה מלאכותית' : 'AI Courses & Training',
+                    description: language === 'he'
+                      ? 'הדרכות מקיפות בבינה מלאכותית - מהיסודות ועד ליישומים מתקדמים.'
+                      : 'Comprehensive AI training - from basics to advanced applications.',
+                    icon: <BookOpen className="w-12 h-12" aria-hidden="true" />,
+                    features: language === 'he'
+                      ? ['יסודות בינה מלאכותית', 'כלי AI מתקדמים', 'יישומים עסקיים', 'פרויקטים מעשיים']
+                      : ['AI fundamentals', 'Advanced AI tools', 'Business applications', 'Practical projects']
+                  }
+                ]}
+                autoPlay
+                autoPlayInterval={5000}
+                showDots
+                showArrows
+                className="mb-20"
+              />
+            </Suspense>
           </div>
         </section>
 
-        <ClientsLogosSlider />
+        <Suspense fallback={<div className="text-center text-neutral-500 py-10">Loading clients…</div>}>
+          <ClientsLogosSlider />
+        </Suspense>
       </main>
     </>
   );

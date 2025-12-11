@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { createPageUrl } from '@/utils';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import AnimatedElement from '../components/ui/AnimatedElement';
+import SEO from '../components/SEO';
 import { CheckCircle, Users, Award, Clock, BookOpen, Star, Phone, MessageSquare, Target, TrendingUp, Zap, Heart, Sparkles, ArrowRight, Play, Send, MessageCircle } from 'lucide-react';
 
 export default function Courses({ language = 'he' }) {
@@ -24,41 +25,10 @@ export default function Courses({ language = 'he' }) {
     learnMore: rtl ? 'למידע נוסף' : 'Learn More'
   }), [rtl]);
 
-  // Set page title and meta
-  useEffect(() => {
-    document.title = rtl ? 'קורסי בינה מלאכותית | Joya-Tech' : 'AI Courses | Joya-Tech';
-
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
-      document.head.appendChild(metaDescription);
-    }
-
-    metaDescription.content = rtl
-      ? 'קורסי AI והכשרות בינה מלאכותית מקיפות. הדרכות פרטיות וארגוניות, למידה עם בינה מלאכותית, קורס AI מלא ומותאם אישית.'
-      : 'Comprehensive AI courses and artificial intelligence training. Private and organizational coaching, learning with artificial intelligence.';
-
-    // Add Open Graph meta tags
-    const setMetaTag = (property, content) => {
-      let meta = document.querySelector(`meta[property="${property}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('property', property);
-        document.head.appendChild(meta);
-      }
-      meta.content = content;
-    };
-
-    setMetaTag('og:title', document.title);
-    setMetaTag('og:description', metaDescription.content);
-    setMetaTag('og:type', 'website');
-    setMetaTag('og:url', window.location.href);
-    setMetaTag('og:image', 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/030050_3.png');
-  }, [rtl]);
-
   return (
-    <main className="text-neutral-900">
+    <>
+      <SEO page="courses" language={language} type="website" />
+      <main className="text-neutral-900">
       {/* Hero Section */}
       <section
         className="relative overflow-hidden pt-36 pb-24 min-h-screen flex items-center bg-gradient-to-br from-neutral-50 via-primary-50/40 to-secondary-50"
@@ -586,6 +556,7 @@ export default function Courses({ language = 'he' }) {
           </AnimatedElement>
         </div>
       </section>
-    </div>
+      </main>
+    </>
   );
 }

@@ -100,6 +100,14 @@ VITE_CONTACT_EMAIL=contact@joyatech.com
 VITE_CONTACT_PHONE=+972-54-646-8676
 VITE_API_BASE_URL=https://api.joyatech.com
 VITE_ENABLE_ANALYTICS=false
+
+# Firebase Configuration (for contact forms)
+VITE_FIREBASE_API_KEY=your_api_key_here
+VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
 ```
 
 ## 🚀 Deployment

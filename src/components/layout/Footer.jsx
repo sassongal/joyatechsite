@@ -23,6 +23,8 @@ export default function Footer({ language = 'he' }) {
               <img 
                 src={joyaLogo} 
                 alt="JoyaTech Logo" 
+                loading="lazy"
+                decoding="async"
                 className="h-14"
               />
             </Link>
@@ -51,6 +53,11 @@ export default function Footer({ language = 'he' }) {
               <li>
                 <Link to={createPageUrl('Services') + `?service=seo&lang=${language}`} className="text-neutral-600 hover:text-primary-600 transition-colors">
                   {t("seo")}
+                </Link>
+              </li>
+              <li>
+                <Link to={createPageUrl('Services') + `?service=geo&lang=${language}`} className="text-neutral-600 hover:text-primary-600 transition-colors">
+                  {t("geo")}
                 </Link>
               </li>
               <li>

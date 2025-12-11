@@ -44,6 +44,8 @@ export default function Header({ language = 'he' }) {
           <img 
             src={joyaLogo}
             alt="JoyaTech Logo" 
+            loading="lazy"
+            decoding="async"
             className="h-20 -mt-8"
           />
         </Link>
@@ -57,6 +59,7 @@ export default function Header({ language = 'he' }) {
               { label: t('tools'), href: createPageUrl('Tools') + `?lang=${language}` },
               { label: t('courses'), href: createPageUrl('Courses') + `?lang=${language}` },
               { label: t('services'), href: createPageUrl('Services') + `?lang=${language}` },
+              { label: t('geo'), href: createPageUrl('Geo') + `?lang=${language}` },
               { label: t('about'), href: createPageUrl('About') + `?lang=${language}` }
             ]}
             particleCount={20}
@@ -71,7 +74,7 @@ export default function Header({ language = 'he' }) {
           <LanguageToggle currentLanguage={language} />
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="ml-4 rtl:mr-4 rtl:ml-0 text-gray-900 hover:text-primary-600 transition-colors"
+            className="ml-4 rtl:mr-4 rtl:ml-0 text-neutral-900 hover:text-primary-600 transition-colors"
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? (rtl ? 'סגור תפריט' : 'Close menu') : (rtl ? 'פתח תפריט' : 'Open menu')}
           >
@@ -117,17 +120,24 @@ export default function Header({ language = 'he' }) {
             </Link>
             <Link 
               to={createPageUrl('Services') + `?lang=${language}`}
-              className="text-gray-900 hover:text-primary-600 font-medium py-2 transition-colors"
+              className="text-neutral-900 hover:text-primary-600 font-medium py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("services")}
             </Link>
             <Link
               to={createPageUrl('About') + `?lang=${language}`}
-              className="text-gray-900 hover:text-primary-600 font-medium py-2 transition-colors"
+              className="text-neutral-900 hover:text-primary-600 font-medium py-2 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t("about")}
+            </Link>
+            <Link
+              to={createPageUrl('Geo') + `?lang=${language}`}
+              className="text-neutral-900 hover:text-primary-600 font-medium py-2 transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {t("geo")}
             </Link>
           </nav>
         </div>

@@ -5,6 +5,7 @@ import AnimatedElement from '../components/ui/AnimatedElement';
 import { Calendar, Clock, User, ArrowLeft, Share2, Bookmark } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import articlesData from '../../all-articles-final.json';
+import SEO from '@/components/SEO';
 
 export default function MagazineArticle({ language = 'he' }) {
   const { id } = useParams();
@@ -68,7 +69,7 @@ export default function MagazineArticle({ language = 'he' }) {
     return (
       <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-neutral-50">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-neutral-900 mb-4">
             {rtl ? 'מאמר לא נמצא' : 'Article Not Found'}
           </h1>
           <p className="text-neutral-700 mb-8">
@@ -102,7 +103,20 @@ export default function MagazineArticle({ language = 'he' }) {
   });
 
   return (
-    <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-neutral-50">
+    <>
+      {article && (
+        <SEO
+          title={rtl ? article.title_he : article.title_en}
+          description={rtl ? article.excerpt_he : article.excerpt_en}
+          image={article.image}
+          url={typeof window !== 'undefined' ? window.location.href : undefined}
+          type="article"
+          author={article.author}
+          datePublished={article.date}
+        />
+      )}
+
+      <section dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-neutral-50">
       <div className="container mx-auto px-4">
         {/* Back Button */}
         <AnimatedElement animation="fadeIn" className="mb-8">
@@ -126,7 +140,7 @@ export default function MagazineArticle({ language = 'he' }) {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6 leading-tight">
               {rtl ? article.title_he : article.title_en}
             </h1>
 
@@ -156,6 +170,8 @@ export default function MagazineArticle({ language = 'he' }) {
               <img
                 src={article.image}
                 alt={rtl ? article.title_he : article.title_en}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -195,7 +211,7 @@ export default function MagazineArticle({ language = 'he' }) {
         {article.tags && article.tags.length > 0 && (
           <AnimatedElement animation="fadeIn" className="mb-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-bold text-neutral-900 mb-4">
                 {rtl ? 'תגיות:' : 'Tags:'}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -216,7 +232,7 @@ export default function MagazineArticle({ language = 'he' }) {
         {relatedArticles.length > 0 && (
           <AnimatedElement animation="fadeIn">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
                 {rtl ? 'מאמרים קשורים' : 'Related Articles'}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -245,7 +261,7 @@ export default function MagazineArticle({ language = 'he' }) {
                           </div>
                         </div>
 
-                        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-secondary-700 transition-colors line-clamp-2">
+                        <h3 className="text-lg font-bold text-neutral-900 mb-3 group-hover:text-secondary-700 transition-colors line-clamp-2">
                           {rtl ? relatedArticle.title_he : relatedArticle.title_en}
                         </h3>
 
@@ -271,6 +287,7 @@ export default function MagazineArticle({ language = 'he' }) {
           </AnimatedElement>
         )}
       </div>
-    </section>
+      </section>
+    </>
   );
 }

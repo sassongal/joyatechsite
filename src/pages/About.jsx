@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import AnimatedElement from '../components/ui/AnimatedElement';
+import SEO from '../components/SEO';
 import { Users, Lightbulb, Target, Award, Star, CheckCircle } from 'lucide-react';
 import logoBlue from '@/assets/graphics/LogoBlue.png';
 
@@ -66,31 +67,20 @@ export default function About({ language = 'he' }) {
     contactButton: rtl ? 'צרו קשר' : 'Contact Us'
   };
 
-  // Set page title and meta description based on language
-  React.useEffect(() => {
-    document.title = language === 'he' 
-      ? 'אודות Joya-Tech | פתרונות דיגיטליים'
-      : 'About Joya-Tech | Digital Solutions';
-      
-    // Set meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
-      document.head.appendChild(metaDescription);
-    }
-    
-    metaDescription.content = language === 'he'
-      ? 'הכירו את Joya-Tech - חברת פתרונות דיגיטליים המתמחה בשיווק, פיתוח ואסטרטגיה עם צוות מקצועי ומנוסה.'
-      : 'Meet Joya-Tech - a digital solutions company specializing in marketing, development and strategy with a professional and experienced team.';
-  }, [language]);
 
   return (
-    <main dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-gradient-to-br from-blue-50 to-gray-50">
+    <>
+      <SEO 
+        page="about"
+        language={language}
+        type="website"
+      />
+      
+      <main dir={rtl ? 'rtl' : 'ltr'} className="pt-28 pb-16 bg-gradient-to-br from-primary-50 to-neutral-50">
       <div className="container mx-auto px-4">
         <AnimatedElement animation="fadeIn" className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{translations.title}</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">{translations.subtitle}</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">{translations.title}</h1>
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">{translations.subtitle}</p>
         </AnimatedElement>
         
         <div className="max-w-6xl mx-auto">
@@ -98,8 +88,8 @@ export default function About({ language = 'he' }) {
           <AnimatedElement animation="fadeIn" className="mb-20" id="mission">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className={rtl ? 'lg:order-2' : 'lg:order-1'}>
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{translations.missionTitle}</h2>
-                <p className="text-lg text-gray-600">{translations.mission}</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-6">{translations.missionTitle}</h2>
+                <p className="text-lg text-neutral-600">{translations.mission}</p>
               </div>
               <div className={rtl ? 'lg:order-1' : 'lg:order-2'}>
                 <div className="relative">
@@ -107,6 +97,8 @@ export default function About({ language = 'he' }) {
                   <img
                     src={logoBlue}
                     alt="Joya-Tech Logo"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full max-w-md mx-auto rounded-xl shadow-xl relative z-10"
                   />
                 </div>
@@ -116,7 +108,7 @@ export default function About({ language = 'he' }) {
           
           {/* Values Section */}
           <AnimatedElement animation="fadeIn" className="mb-20" id="values">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-12 text-center">{translations.valueTitle}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-12 text-center">{translations.valueTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {translations.values.map((value, index) => (
                 <AnimatedElement 
@@ -128,8 +120,8 @@ export default function About({ language = 'he' }) {
                     <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-primary-100 text-primary-600" aria-hidden="true">
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900">{value.title}</h3>
-                    <p className="text-gray-600">{value.description}</p>
+                    <h3 className="text-xl font-bold mb-3 text-neutral-900">{value.title}</h3>
+                    <p className="text-neutral-600">{value.description}</p>
                   </article>
                 </AnimatedElement>
               ))}
@@ -139,5 +131,6 @@ export default function About({ language = 'he' }) {
         </div>
       </div>
     </main>
+    </>
   );
 }

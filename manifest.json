@@ -1,0 +1,36 @@
+{
+  "name": "Joya-Tech Digital Solutions",
+  "short_name": "Joya-Tech",
+  "description": "Advanced digital solutions for businesses - SEO, content creation, web development, and automation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F2EFEA",
+  "theme_color": "#FC7753",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "he"
+}

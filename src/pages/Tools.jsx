@@ -114,13 +114,13 @@ export default function Tools({ language = 'he' }) {
               {/* Search */}
               <div className="flex-1">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
+                  <Search className={`absolute ${rtl ? 'right-3' : 'left-3'} top-1/2 -translate-y-1/2 text-neutral-400 w-5 h-5`} />
                   <input
                     type="text"
                     placeholder={rtl ? 'חפש כלים...' : 'Search tools...'}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl brand-input placeholder-neutral-500 focus:border-primary-400 focus:outline-none"
+                    className={`w-full ${rtl ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 rounded-xl brand-input placeholder-neutral-500 focus:border-primary-400 focus:outline-none`}
                   />
                 </div>
               </div>
@@ -128,11 +128,11 @@ export default function Tools({ language = 'he' }) {
               {/* Category Filter */}
               <div className="lg:w-64">
                 <div className="relative">
-                  <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
+                  <Filter className={`absolute ${rtl ? 'right-3' : 'left-3'} top-1/2 -translate-y-1/2 text-neutral-400 w-5 h-5`} />
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl brand-input focus:border-primary-400 focus:outline-none appearance-none"
+                    className={`w-full ${rtl ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-3 rounded-xl brand-input focus:border-primary-400 focus:outline-none appearance-none`}
                   >
                     {Object.entries(categories).map(([key, label]) => (
                       <option key={key} value={key} className="bg-white">
@@ -167,6 +167,8 @@ export default function Tools({ language = 'he' }) {
                       <img
                         src={tool.logo}
                         alt={rtl ? tool.name_he : tool.name_en}
+                        loading="lazy"
+                        decoding="async"
                         className="w-12 h-12 rounded-lg object-contain bg-white p-1 border border-neutral-200"
                         onError={(e) => {
                           e.target.src = 'https://via.placeholder.com/48x48?text=AI';

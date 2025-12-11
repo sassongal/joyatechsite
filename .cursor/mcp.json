@@ -1,11 +1,12 @@
 {
-  "mcpServers": {
+  "servers": {
+    "dart": {
+      "command": "dart",
+      "args": ["run", "mcp_server"]
+    },
     "shadcn": {
-      "command": "npx",
-      "args": [
-        "shadcn@latest",
-        "mcp"
-      ]
+      "command": "node",
+      "args": ["shadcn-mcp/index.js"]
     }
   }
 }
